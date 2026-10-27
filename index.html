@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Илья Игнатенков — репетитор по математике, информатике и Python</title>
-  <meta name="description" content="Илья Игнатенков — репетитор по математике, информатике и Python. ЕГЭ/ОГЭ, школьная программа, индивидуальные и групповые занятия онлайн. Запись в Telegram: @ilyaign17"/>
+  <meta name="description" content="Илья Игнатенков — репетитор по математике, информатике и Python. ЕГЭ/ОГЭ, школьная программа, индивидуальные и групповые занятия онлайн. Связь: Telegram, MAX и электронная почта."/>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -45,95 +45,248 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: dark; }
-    html, body { background:#0b0f1a; }
-    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
-    html { scroll-behavior: smooth; }
-    .reveal { opacity:0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
-    .reveal.show { opacity:1; transform: none; }
-    .grain:before { content:''; position:fixed; inset:0; pointer-events:none; opacity:.08; background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%22 height=%22100%22 filter=%22url(%23n)%22 opacity=%22.08%22/></svg>'); mix-blend-mode: soft-light; }
+    :root {
+      color-scheme:dark;
+      --color-bg:#0b0f1a; --color-surface:#101827; --color-surface-raised:#141e2f;
+      --color-text:#edf2f8; --color-body:#c0ccdc; --color-muted:#a2b1c5;
+      --color-accent:#8bdfc5; --color-blue:#8cbce8;
+      --color-border:rgba(179,201,228,.14); --color-border-hover:rgba(139,223,197,.4);
+      --font-small:.875rem; --font-body:1rem; --font-lead:clamp(1rem, .95rem + .25vw, 1.125rem);
+      --font-h1:clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+      --font-h2:clamp(1.625rem, 1.35rem + .9vw, 2.125rem);
+      --font-h3:clamp(1.125rem, 1.05rem + .25vw, 1.25rem);
+      --font-value:clamp(1.5rem, 1.25rem + .8vw, 1.875rem);
+      --line-body:1.7; --line-heading:1.18;
+      --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+      --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px; --space-9:80px;
+      --radius-small:8px; --radius-button:12px; --radius-card:20px; --radius-large:24px;
+      --shadow-card:0 10px 32px rgba(0,0,0,.1);
+      --shadow-button:0 4px 16px rgba(88,157,170,.1);
+      --duration:180ms; --section-space:clamp(40px, 5vw, 64px);
+    }
+    *, *::before, *::after { box-sizing:border-box; }
+    html, body { background:var(--color-bg); }
+    body { margin:0; color:var(--color-body); font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size:var(--font-body); line-height:var(--line-body); }
+    img { max-width:100%; }
+    html { scroll-behavior:smooth; scroll-padding-top:var(--header-height, 6rem); }
+    .reveal { opacity:1; }
+    :where(a, button, summary):focus-visible { outline:2px solid var(--color-accent); outline-offset:4px; }
+    .max-w-7xl { width:100%; max-width:1280px; margin-inline:auto; padding-inline:var(--space-4); }
+    @media (min-width:640px) { .max-w-7xl { padding-inline:var(--space-5); } }
+    @media (min-width:1024px) { .max-w-7xl { padding-inline:var(--space-6); } }
+
+    .site-header { background:rgba(11,15,26,.94); border-bottom:1px solid var(--color-border); }
+    .header-layout { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:var(--space-4); align-items:center; padding-block:var(--space-3); }
+    .header-brand { min-width:0; font-size:var(--font-small); font-weight:600; letter-spacing:-.015em; line-height:1.45; text-decoration:none; color:var(--color-text); }
+    .header-brand span { display:block; color:var(--color-accent); font-weight:400; }
+    .site-header .header-cta { display:none; }
+    .menu-toggle { display:none; align-items:center; justify-content:center; gap:var(--space-2); min-height:44px; padding:var(--space-2) var(--space-3); border:1px solid var(--color-border); border-radius:var(--radius-button); background:var(--color-surface); color:var(--color-accent); font:inherit; font-size:var(--font-small); cursor:pointer; transition:border-color var(--duration), background var(--duration); }
+    .menu-icon { width:18px; height:12px; border-top:1.5px solid currentColor; border-bottom:1.5px solid currentColor; }
+    .site-navigation { grid-column:1 / -1; }
+    .navigation-links { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:var(--space-1) var(--space-3); }
+    .navigation-links a { display:flex; align-items:center; min-height:44px; padding:var(--space-2); border-radius:var(--radius-small); color:var(--color-body); font-size:var(--font-small); text-decoration:none; transition:color var(--duration), background var(--duration); }
+    .navigation-links a:hover { background:rgba(255,255,255,.035); color:var(--color-text); }
+    @media (max-width:1279px) {
+      /* Navigation stays visible in document flow until JS is successfully initialized. */
+      .site-header { position:relative; }
+      .site-header.nav-ready { position:sticky; }
+      .nav-ready .menu-toggle { display:inline-flex; }
+      .nav-ready .site-navigation { position:absolute; top:100%; left:0; right:0; display:grid; grid-template-rows:0fr; visibility:hidden; background:var(--color-surface); border-bottom:1px solid var(--color-border); box-shadow:var(--shadow-card); transition:grid-template-rows .22s ease, visibility 0s .22s; }
+      .nav-ready .site-navigation.is-open { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .22s ease, visibility 0s; }
+      .nav-ready .navigation-clip { min-height:0; overflow:hidden; }
+      .nav-ready .navigation-links { padding:var(--space-3) var(--space-4); max-height:calc(100dvh - var(--header-height, 6rem) - 12px); overflow-y:auto; }
+    }
+    @media (min-width:640px) { .header-brand { font-size:var(--font-body); } }
+    @media (min-width:1280px) {
+      .header-layout { display:flex; gap:var(--space-5); }
+      .header-brand { white-space:nowrap; }
+      .header-brand span { display:inline; }
+      .site-navigation { margin-left:auto; }
+      .navigation-links { display:flex; gap:var(--space-4); }
+      .navigation-links a { padding:var(--space-2) 0; }
+      .site-header .header-cta { display:inline-flex; white-space:nowrap; min-height:44px; padding:var(--space-2) var(--space-4); }
+    }
+
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:var(--space-3); min-height:48px; padding:var(--space-3) var(--space-5); border:1px solid transparent; border-radius:var(--radius-button); font:inherit; font-size:var(--font-body); font-weight:600; line-height:1.4; text-align:center; text-decoration:none; cursor:pointer; transition:transform var(--duration), background var(--duration), border-color var(--duration), box-shadow var(--duration); }
+    .button.button-primary { color:var(--color-bg); background:linear-gradient(110deg, #8bdfc5, #92c6df); box-shadow:var(--shadow-button); }
+    .button.button-secondary { color:var(--color-text); background:rgba(16,24,39,.6); border-color:var(--color-border); }
+    .button svg, .contact-icon svg { width:20px; height:20px; flex-shrink:0; }
+    .button:active { transform:translateY(1px); box-shadow:none; }
+    @media (hover:hover) {
+      .button.button-primary:hover { background:linear-gradient(110deg, #a1e7d1, #a4d1e5); box-shadow:0 6px 20px rgba(88,157,170,.16); }
+      .button.button-secondary:hover, .menu-toggle:hover { border-color:var(--color-border-hover); background:var(--color-surface-raised); }
+    }
+
+    .hero { position:relative; isolation:isolate; border-bottom:1px solid var(--color-border); }
+    .hero::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 85% 45%, rgba(96,165,250,.045), transparent 60%); }
+    .hero-layout { display:grid; align-items:center; gap:var(--space-6); padding-block:var(--space-7); }
+    .hero-copy { min-width:0; }
+    .hero-eyebrow { display:flex; align-items:center; gap:var(--space-2); margin:0 0 var(--space-4); color:var(--color-muted); font-size:var(--font-small); font-weight:500; line-height:1.6; }
+    .hero-eyebrow::before { content:''; width:5px; height:5px; flex-shrink:0; border-radius:50%; background:var(--color-accent); }
+    .hero-title { margin:0; color:var(--color-text); font-size:var(--font-h1); font-weight:650; line-height:var(--line-heading); letter-spacing:-.035em; text-wrap:balance; }
+    .hero-title-accent { color:var(--color-accent); font-size:inherit; font-weight:750; white-space:nowrap; }
+    .hero-title-subjects { display:block; font:inherit; color:inherit; }
+    .hero-description { max-width:35em; margin:var(--space-5) 0 0; color:var(--color-body); font-size:var(--font-lead); line-height:var(--line-body); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center; margin-top:var(--space-5); }
+    .hero-note { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-small); line-height:1.6; }
+    .hero-topics { display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-4); margin:var(--space-5) 0 0; padding:0; list-style:none; color:var(--color-muted); font-size:var(--font-small); line-height:1.6; }
+    .hero-topics li + li::before { content:'/'; margin-right:var(--space-4); color:#688095; }
+    .hero-portrait { width:100%; max-width:360px; min-width:0; margin:0 auto; }
+    .hero-photo-frame { padding:var(--space-2); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(20,30,47,.45); box-shadow:var(--shadow-card); }
+    .hero-photo { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:calc(var(--radius-large) - var(--space-2)); }
+    .hero-caption { margin-top:var(--space-4); padding-inline:var(--space-2); }
+    .hero-caption strong { display:block; color:var(--color-text); font-size:var(--font-body); font-weight:600; }
+    .hero-caption span { display:block; margin-top:var(--space-1); color:var(--color-muted); font-size:var(--font-small); line-height:1.6; }
+    @media (max-width:479px) {
+      .hero-actions { display:grid; grid-template-columns:minmax(0, 1fr); }
+      .hero-actions .button { width:100%; }
+    }
+    @media (min-width:640px) { .hero-layout { gap:var(--space-7); padding-block:var(--space-8); } }
+    @media (min-width:1024px) {
+      .hero-layout { grid-template-columns:minmax(0, 1.6fr) minmax(0, 1fr); gap:var(--space-8); }
+      .hero-portrait { max-width:400px; margin-right:0; }
+    }
+    @keyframes hero-enter { from { opacity:.85; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    @media (prefers-reduced-motion:no-preference) {
+      .hero-copy, .hero-portrait { animation:hero-enter .55s ease-out; }
+    }
+
+    .content-section { padding-block:var(--section-space); }
+    .content-section h2 { margin:0; color:var(--color-text); font-size:var(--font-h2); font-weight:650; line-height:var(--line-heading); letter-spacing:-.025em; text-wrap:balance; }
+    .content-section h3 { color:var(--color-text); font-size:var(--font-h3); font-weight:600; line-height:1.4; letter-spacing:-.015em; }
+    .content-section p, .content-section li { color:var(--color-body); font-size:var(--font-body); line-height:var(--line-body); }
+    .content-section .surface-card { padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.7); box-shadow:var(--shadow-card); --tw-ring-shadow:0 0 #0000; }
+    .content-section > .grid { gap:var(--space-5); margin-top:var(--space-5); }
+    .content-section .price-value { color:var(--color-text); font-size:var(--font-value); font-weight:650; line-height:1.3; letter-spacing:-.02em; }
+    .content-section .fact-value { color:var(--color-text); font-size:var(--font-h3); font-weight:600; line-height:1.4; letter-spacing:-.015em; }
+    .content-section .fact-number { font-size:var(--font-value); line-height:1.3; }
+    .content-section .text-sm { font-size:var(--font-small); color:var(--color-muted); }
+    .content-section .faq-panel { margin-top:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.6); box-shadow:none; --tw-ring-shadow:0 0 #0000; }
+    .faq-panel details { padding:var(--space-5); border-color:var(--color-border); }
+    .faq-panel summary { min-height:24px; gap:var(--space-4); color:var(--color-text); font-size:var(--font-body); font-weight:500; line-height:1.6; }
+    .faq-panel summary::-webkit-details-marker { display:none; }
+    .faq-panel summary > span { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; margin:0; color:var(--color-muted); }
+    .faq-panel summary svg { width:20px; height:20px; }
+    .content-section .closing-panel { padding:clamp(24px, 3vw, 40px); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.7); box-shadow:none; --tw-ring-shadow:0 0 #0000; }
+    .closing-panel .button { flex-shrink:0; }
+    .content-section .site-footer { margin-top:var(--space-5); color:var(--color-muted); font-size:var(--font-small); line-height:1.7; }
+
+    .contact-intro { max-width:42em; margin:var(--space-4) 0 0; }
+    .contact-grid { display:grid; grid-template-columns:minmax(0, 1fr); gap:var(--space-5); margin-top:var(--space-5); }
+    .contact-card { display:flex; flex-direction:column; align-items:stretch; gap:var(--space-4); min-width:0; padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.7); box-shadow:var(--shadow-card); }
+    .contact-heading { display:flex; align-items:center; gap:var(--space-3); }
+    .contact-heading h3 { margin:0; }
+    .contact-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; flex-shrink:0; border:1px solid var(--color-border); border-radius:var(--radius-button); color:var(--color-accent); background:rgba(139,223,197,.04); }
+    .contact-card .contact-address { margin:0; color:var(--color-muted); font-size:var(--font-small); overflow-wrap:anywhere; }
+    .contact-card .contact-action { margin-top:auto; width:100%; }
+    .contact-qr { min-width:0; }
+    .contact-qr summary { width:100%; list-style:none; }
+    .contact-qr summary::-webkit-details-marker { display:none; }
+    .contact-qr summary::marker { content:''; }
+    .contact-qr[open] summary svg { transform:rotate(45deg); }
+    .contact-qr summary svg { transition:transform var(--duration); }
+    .contact-qr-content { padding-top:var(--space-5); text-align:center; }
+    .contact-qr-content img { display:block; width:176px; height:176px; margin:0 auto var(--space-4); border-radius:var(--radius-small); }
+    .contact-qr-content a, .contact-extra a { color:var(--color-body); text-underline-offset:4px; text-decoration:underline; }
+    .contact-qr-content a { font-size:var(--font-small); }
+    .content-section .contact-extra { margin-top:var(--space-5); color:var(--color-muted); font-size:var(--font-small); }
+    @media (min-width:1024px) { .contact-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation:none !important; transition:none !important; }
+    }
   </style>
 </head>
-<body class="grain text-slate-200 antialiased selection:bg-accent/20">
-  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-bg/70 bg-bg/80 border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-      <a href="#top" class="font-semibold tracking-tight text-slate-100">
+<body class="text-slate-200 antialiased selection:bg-accent/20">
+  <header class="site-header sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-bg/70 bg-bg/80 border-b border-white/5">
+    <div class="header-layout max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <a href="#top" class="header-brand font-semibold tracking-tight text-slate-100">
         ИЛЬЯ ИГНАТЕНКОВ<span class="text-accent"> • репетитор</span>
       </a>
-      <nav class="hidden sm:flex gap-6 text-sm text-slate-300">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Открыть меню">
+        <span class="menu-icon" aria-hidden="true"></span>Меню
+      </button>
+      <nav id="site-navigation" class="site-navigation text-sm text-slate-300" aria-label="Основная навигация">
+        <div class="navigation-clip"><div class="navigation-links">
         <a href="#services" class="hover:text-white">Направления</a>
         <a href="#pricing" class="hover:text-white">Цены</a>
         <a href="#facts" class="hover:text-white">Почему я</a>
         <a href="#reviews" class="hover:text-white">Отзывы</a>
         <a href="#faq" class="hover:text-white">FAQ</a>
         <a href="#contacts" class="hover:text-white">Контакты</a>
+        </div></div>
       </nav>
-      <a href="https://t.me/ilyaign17" target="_blank" rel="noopener" class="ml-4 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-accent to-accent2 px-4 py-2 font-semibold text-bg shadow-glow hover:scale-[1.02] transition" aria-label="Записаться в Telegram">
-        Записаться в Telegram
+      <a href="#contacts" class="header-cta button button-primary">
+        Записаться
       </a>
     </div>
   </header>
 
   <main id="top" class="relative">
-    <section class="relative overflow-hidden">
-      <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,.15),transparent_45%),radial-gradient(ellipse_at_bottom_left,rgba(110,231,183,.12),transparent_45%)]"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid lg:grid-cols-[380px,1fr] gap-10 items-center">
-        <div class="flex justify-center lg:justify-start">
-          <div class="relative w-44 h-44 sm:w-56 sm:h-56 rounded-3xl shadow-xl ring-1 ring-white/10 overflow-hidden animate-floaty">
-            <img src="./images/avatar.png" alt="Илья Игнатенков" class="w-full h-full object-cover">
-            <div class="absolute inset-0 ring-1 ring-white/10 rounded-3xl"></div>
-          </div>
-        </div>
-        <div class="reveal">
-          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight text-white">
-            Репетитор по математике, информатике и <span class="text-accent">Python</span>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-layout max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Онлайн · Индивидуально и в группе</p>
+          <h1 id="hero-title" class="hero-title">
+            Подготовка к
+            <span class="hero-title-accent">ЕГЭ и ОГЭ</span>
+            <span class="hero-title-subjects">по математике и информатике</span>
           </h1>
-          <p class="mt-4 text-lg text-slate-300 max-w-2xl">
-            Готовлю к <strong>ЕГЭ/ОГЭ</strong>, помогаю со школьной программой и олимпиадами. Индивидуальные и групповые занятия <strong>онлайн</strong>, понятные объяснения, системная подготовка и живые примеры.
+          <p class="hero-description">
+            Объясняю сложные темы простым языком. Выстраиваем план подготовки, разбираем задачи и закрепляем знания на практике.
           </p>
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#pricing" class="rounded-xl bg-card/60 ring-1 ring-white/10 px-4 py-2 hover:ring-white/20 transition">Посмотреть цены</a>
-            <a href="https://t.me/ilyaign17" target="_blank" rel="noopener" class="rounded-xl bg-white text-bg font-semibold px-4 py-2 hover:opacity-90 transition shadow">
-              Записаться на пробное занятие
+          <div class="hero-actions">
+            <a href="#contacts" class="hero-primary button button-primary">
+              Обсудить занятия
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
+            <a href="#pricing" class="hero-secondary button button-secondary">Посмотреть цены</a>
           </div>
-          <ul class="mt-6 grid grid-cols-2 sm:flex sm:flex-wrap gap-3 text-sm text-slate-400">
-            <li class="px-3 py-2 bg-card/40 ring-1 ring-white/5 rounded-lg">ЕГЭ / ОГЭ</li>
-            <li class="px-3 py-2 bg-card/40 ring-1 ring-white/5 rounded-lg">Школьная программа</li>
-            <li class="px-3 py-2 bg-card/40 ring-1 ring-white/5 rounded-lg">Олимпиады</li>
-            <li class="px-3 py-2 bg-card/40 ring-1 ring-white/5 rounded-lg">Python‑разработка</li>
+          <p class="hero-note">Telegram, MAX или почта — выбирайте удобный способ связи.</p>
+          <ul class="hero-topics" aria-label="Другие направления занятий">
+            <li>Школьная программа</li>
+            <li>Олимпиады</li>
+            <li>Python</li>
           </ul>
         </div>
+        <figure class="hero-portrait">
+          <div class="hero-photo-frame">
+            <img src="./images/avatar.png" alt="Илья Игнатенков — репетитор по математике и информатике" width="512" height="512" fetchpriority="high" class="hero-photo">
+          </div>
+          <figcaption class="hero-caption">
+            <div><strong>Илья Игнатенков</strong><span>Репетитор по математике, информатике и Python</span></div>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="services" class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="services" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-white">Направления занятий</h2>
       <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 shadow-glow">
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 shadow-glow">
           <h3 class="font-semibold text-white">ЕГЭ по информатике и математике</h3>
           <p class="mt-2 text-slate-300">Полная программа подготовки: теория, тренировка на задачах, разбор типичных ошибок, тайм‑менеджмент на экзамене.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 shadow-glow">
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 shadow-glow">
           <h3 class="font-semibold text-white">ОГЭ и школьная программа</h3>
           <p class="mt-2 text-slate-300">Помогаю закрыть пробелы, объясняю сложные темы простым языком. Контроль прогресса и понятные домашние задания.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 shadow-glow">
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 shadow-glow">
           <h3 class="font-semibold text-white">Программирование на Python</h3>
           <p class="mt-2 text-slate-300">От нулевого уровня до уверенного владения: основы, алгоритмы, работа с данными, мини‑проекты и подготовка портфолио.</p>
         </div>
       </div>
     </section>
 
-    <section id="pricing" class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="pricing" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-white">Цены</h2>
       <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="rounded-2xl bg-gradient-to-b from-card/80 to-card/40 ring-1 ring-white/10 p-6">
+        <div class="surface-card rounded-2xl bg-gradient-to-b from-card/80 to-card/40 ring-1 ring-white/10 p-6">
           <h3 class="text-white font-semibold">Индивидуальные занятия</h3>
-          <p class="mt-2 text-3xl font-extrabold text-white">от 2200₽/час</p>
+          <p class="price-value mt-2 text-3xl font-extrabold text-white">от 2200₽/час</p>
           <p class="mt-2 text-slate-300">Персональный план, гибкий график, отчёт по каждому занятию.</p>
         </div>
-        <div class="rounded-2xl bg-gradient-to-b from-card/80 to-card/40 ring-1 ring-white/10 p-6">
+        <div class="surface-card rounded-2xl bg-gradient-to-b from-card/80 to-card/40 ring-1 ring-white/10 p-6">
           <h3 class="text-white font-semibold">Абонементы</h3>
           <ul class="mt-2 text-slate-300 space-y-1">
             <li>4 занятия — <b>скидка 10%</b></li>
@@ -141,9 +294,9 @@
           </ul>
           <p class="mt-2 text-slate-400 text-sm">Оплата помесячно.</p>
         </div>
-        <div class="rounded-2xl bg-gradient-to-b from-card/80 to-card/40 ring-1 ring-white/10 p-6">
+        <div class="surface-card rounded-2xl bg-gradient-to-b from-card/80 to-card/40 ring-1 ring-white/10 p-6">
           <h3 class="text-white font-semibold">Группы</h3>
-          <p class="mt-2 text-3xl font-extrabold text-white">от 5000₽/мес</p>
+          <p class="price-value mt-2 text-3xl font-extrabold text-white">от 5000₽/мес</p>
           <p class="mt-2 text-slate-300">Небольшие группы 2–6 человек. Баланс теории и практики.</p>
         </div>
       </div>
@@ -154,168 +307,256 @@
         </ul>
       </div>
       <div class="mt-6">
-        <a href="https://t.me/ilyaign17" target="_blank" class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-accent to-accent2 px-5 py-3 font-semibold text-bg shadow-glow hover:scale-[1.02] transition">Записаться в Telegram</a>
+        <a href="#contacts" class="button button-primary">Обсудить занятия</a>
       </div>
     </section>
 
-    <section id="facts" class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="facts" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-white">Почему выбирают меня</h2>
       <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="text-4xl font-extrabold text-white">88–95+</p>
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+          <p class="fact-value fact-number text-4xl font-extrabold text-white">88–95+</p>
           <p class="mt-2 text-slate-300">Баллы учеников на ЕГЭ по информатике и математике у сильных групп.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="text-4xl font-extrabold text-white">25+ баллов</p>
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+          <p class="fact-value fact-number text-4xl font-extrabold text-white">25+ баллов</p>
           <p class="mt-2 text-slate-300">Средний прирост результатов за 2–3 месяца регулярных занятий.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="text-4xl font-extrabold text-white">Python + практика</p>
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+          <p class="fact-value text-4xl font-extrabold text-white">Python + практика</p>
           <p class="mt-2 text-slate-300">Даю практические задачи и мини‑проекты: от алгоритмов до работы с данными.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="text-4xl font-extrabold text-white">Личный план</p>
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+          <p class="fact-value text-4xl font-extrabold text-white">Личный план</p>
           <p class="mt-2 text-slate-300">Диагностика, цели, календарь тем, контроль прогресса каждую неделю.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="text-4xl font-extrabold text-white">Простые объяснения</p>
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+          <p class="fact-value text-4xl font-extrabold text-white">Простые объяснения</p>
           <p class="mt-2 text-slate-300">Сложные темы через понятные аналоги, визуализации и разборы в реальном времени.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="text-4xl font-extrabold text-white">Связь в Telegram</p>
+        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+          <p class="fact-value text-4xl font-extrabold text-white">Связь между занятиями</p>
           <p class="mt-2 text-slate-300">Оперативная обратная связь по домашке и вопросам между занятиями.</p>
         </div>
       </div>
     </section>
 
-    <section id="reviews" class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="reviews" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-white">Отзывы</h2>
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
           <h3 class="font-semibold text-white">Наталья, родитель</h3>
           <p class="mt-2 text-slate-300">С учетом того, что ребенок не был замотивирован на учебу, Илья Сергеевич сумел заинтересовать ученика и подготовить его к успешной сдаче ОГЭ по информатике. Специалиста рекомендую однозначно!</p>
         </article>
-        <article class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
           <h3 class="font-semibold text-white">Саджат, ученик</h3>
           <p class="mt-2 text-slate-300">Прекрасный репетитор! Занимались лишь 2 месяца, подняли бал с 51 до 88. Очень доволен результатом, человек знает своё дело, очень доходчиво и четко объяснил каждое задание. Очень приятен в общении. В общем 10/10</p>
         </article>
-        <article class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
           <h3 class="font-semibold text-white">Эдуард, ученик</h3>
           <p class="mt-2 text-slate-300">Спасибо большое Илье Сергеевичу, научил понимать логику решения, а не тупо решать по шаблонам.</p>
         </article>
-        <article class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
+        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
           <h3 class="font-semibold text-white">Мария, родитель</h3>
           <p class="mt-2 text-slate-300">Илья Сергеевич очень понравился. Доступно объясняет материал, сразу нашел контакт с ребенком.</p>
         </article>
-        <article class="p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 md:col-span-2">
+        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 md:col-span-2">
           <h3 class="font-semibold text-white">Алина, ученица</h3>
           <p class="mt-2 text-slate-300">Все супер, подтянул знания, заполнил пробелы. Спасибо большое ему.</p>
         </article>
       </div>
     </section>
 
-    <section id="faq" class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="faq" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="text-2xl sm:text-3xl font-bold text-white">FAQ</h2>
-      <div class="mt-6 divide-y divide-white/10 rounded-2xl ring-1 ring-white/10 bg-card/60">
+      <div class="faq-panel mt-6 divide-y divide-white/10 rounded-2xl ring-1 ring-white/10 bg-card/60">
         <details class="group p-6 open:bg-card/80">
           <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
             Как проходит пробное занятие? Оно платное?
-            <span class="ml-6 transition group-open:rotate-45">✛</span>
+            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
           <p class="mt-3 text-slate-300">45–60 минут онлайн: краткая диагностика, постановка целей, план подготовки и мини‑урок по выбранной теме. По итогу — рекомендации и домашнее задание по договорённости. Пробное занятие оплачивается в 75% от выбранного тарифа.</p>
         </details>
         <details class="group p-6">
           <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
             Сколько длится обычное занятие?
-            <span class="ml-6 transition group-open:rotate-45">✛</span>
+            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
           <p class="mt-3 text-slate-300">От 60 до 90 минут. Для индвидуальных занятий, интенсивов и групп — по договорённости.</p>
         </details>
         <details class="group p-6">
           <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
             Домашние задания обязательны?
-            <span class="ml-6 transition group-open:rotate-45">✛</span>
+            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
           <p class="mt-3 text-slate-300">Нет, но домашка помогает закрепить тему и быстро расти. Я даю понятные инструкции и проверяю прогресс.</p>
         </details>
         <details class="group p-6">
           <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
             Можно ли переносить занятие?
-            <span class="ml-6 transition group-open:rotate-45">✛</span>
+            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
           <p class="mt-3 text-slate-300">Да, предупредите за 24 часа — согласуем удобное время. В противном случае удерживается 50% стоимости тарифа.</p>
         </details>
         <details class="group p-6">
           <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
             Оплата и договорённости?
-            <span class="ml-6 transition group-open:rotate-45">✛</span>
+            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
-          <p class="mt-3 text-slate-300">Оплата происходит по предоплате, за исключением пробного занятия. Чеки и закрывающие документы по запросу. Все детали обсуждаем в Telegram.</p>
+          <p class="mt-3 text-slate-300">Оплата происходит по предоплате, за исключением пробного занятия. Чеки и закрывающие документы по запросу. Все детали обсуждаем удобным для вас способом.</p>
         </details>
         <details class="group p-6">
           <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
             С какими классами и уровнями работаю?
-            <span class="ml-6 transition group-open:rotate-45">✛</span>
+            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
           <p class="mt-3 text-slate-300">1–11 классы, а также студенты и взрослые.</p>
         </details>
       </div>
       <div class="mt-8 text-center">
-        <a href="https://t.me/ilyaign17" target="_blank" class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-accent to-accent2 px-5 py-3 font-semibold text-bg shadow-glow hover:scale-[1.02] transition">Написать в Telegram</a>
+        <a href="#contacts" class="button button-primary">Выбрать способ связи</a>
       </div>
     </section>
 
     <!-- CONTACTS -->
-    <section id="contacts" class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">Контакты</h2>
-      <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-8">
-        <!-- текстовые контакты -->
-        <div class="space-y-4 text-slate-300">
-          <p>📧 Email: 
-            <a href="mailto:ilyaign17@yandex.ru" class="text-accent hover:underline">
-              ilyaign17@yandex.ru
-            </a>
-          </p>
-          <p>💬 Telegram: 
-            <a href="https://t.me/ilyaign17" class="text-accent hover:underline">
-              @ilyaign17
-            </a>
-          </p>
-          <p>🌐 VK: 
-            <a href="https://vk.com/ilyaign17" target="_blank" class="text-accent hover:underline">
-              vk.com/ilyaign17
-            </a>
-          </p>
-        </div>
-
-        <!-- QR код -->
-        <div class="shrink-0 text-center">
-          <img src="./images/qrcode.jpg" alt="QR код" 
-              class="w-44 h-44 rounded-xl shadow-lg ring-1 ring-white/10 mx-auto">
-          <p class="mt-2 text-sm text-slate-400">MAX</p>
-        </div>
+    <section id="contacts" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="contacts-title">
+      <h2 id="contacts-title">Контакты</h2>
+      <p class="contact-intro">Обсудим ваши цели, формат и время занятий. Выберите удобный способ связи.</p>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="contact-heading"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l-3 3V11.5A7.5 7.5 0 0 1 9.5 4h3A7.5 7.5 0 0 1 20 11.5Z"/><path d="M7 10h8M7 14h5"/></svg></span><h3>Telegram</h3></div>
+          <p class="contact-address">@ilyaign17</p>
+          <a href="https://t.me/ilyaign17" target="_blank" rel="noopener" class="contact-action button button-secondary">Написать в Telegram</a>
+        </article>
+        <article class="contact-card">
+          <div class="contact-heading"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M15 15h2v2h4v4h-6v-2M21 12v2M12 3v3M12 12h3M12 18v3"/></svg></span><h3>MAX</h3></div>
+          <p class="contact-address">Связь через QR-код</p>
+          <details class="contact-qr contact-action">
+            <summary class="button button-secondary">Показать QR-код <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary>
+            <div class="contact-qr-content">
+              <img src="./images/qrcode.jpg" alt="QR-код для связи с Ильёй Игнатенковым в MAX" width="641" height="641" loading="lazy">
+              <a href="./images/qrcode.jpg" target="_blank" rel="noopener">Открыть QR-код отдельно</a>
+            </div>
+          </details>
+        </article>
+        <article class="contact-card">
+          <div class="contact-heading"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>Электронная почта</h3></div>
+          <p class="contact-address">ilyaign17@yandex.ru</p>
+          <a href="mailto:ilyaign17@yandex.ru" class="contact-action button button-secondary">Написать на почту</a>
+        </article>
       </div>
+      <p class="contact-extra">Профиль ВКонтакте: <a href="https://vk.com/ilyaign17" target="_blank" rel="noopener">vk.com/ilyaign17</a></p>
     </section>
 
 
-    <section class="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="rounded-3xl bg-gradient-to-r from-card/80 to-card/60 p-8 ring-1 ring-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <section class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="closing-panel rounded-3xl bg-gradient-to-r from-card/80 to-card/60 p-8 ring-1 ring-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 class="text-white text-xl font-bold">Готовы начать?</h3>
-          <p class="text-slate-300 mt-1">Напишите в Telegram — подберу удобное время и отправлю план первого занятия.</p>
+          <p class="text-slate-300 mt-1">Свяжитесь удобным способом — подберу время и отправлю план первого занятия.</p>
         </div>
-        <a href="https://t.me/ilyaign17" target="_blank" class="rounded-2xl bg-gradient-to-r from-accent to-accent2 px-6 py-3 font-semibold text-bg shadow-glow hover:scale-[1.02] transition">Записаться</a>
+        <a href="#contacts" class="button button-primary">Обсудить занятия</a>
       </div>
-      <p class="text-center text-xs text-slate-500 mt-6">© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Все договорённости — через Telegram.</p>
+      <p class="site-footer text-center text-xs text-slate-500 mt-6">© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
     </section>
   </main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    const obs = new IntersectionObserver((entries)=>{
-      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); }}
-    }, { threshold: .1 });
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+  <script>
+    (() => {
+      const header = document.querySelector('.site-header');
+      const button = header.querySelector('.menu-toggle');
+      const navigation = document.getElementById('site-navigation');
+      const desktop = window.matchMedia('(min-width:1280px)');
+      let expanded = false;
+
+      function setExpanded(open, restoreFocus = false) {
+        expanded = open && !desktop.matches;
+        button.setAttribute('aria-expanded', String(expanded));
+        button.setAttribute('aria-label', expanded ? 'Закрыть меню' : 'Открыть меню');
+        navigation.classList.toggle('is-open', expanded);
+        const collapsed = !desktop.matches && !expanded;
+        navigation.inert = collapsed;
+        navigation.setAttribute('aria-hidden', String(collapsed));
+        if (restoreFocus) button.focus();
+      }
+
+      function updateHeaderHeight() {
+        const height = Math.ceil(header.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--header-height', `${height + 12}px`);
+      }
+
+      button.addEventListener('click', () => setExpanded(!expanded));
+      navigation.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || !expanded) return;
+        setExpanded(false);
+        const target = document.getElementById(link.hash.slice(1));
+        if (target) {
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll:true });
+        }
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && expanded) {
+          event.preventDefault();
+          setExpanded(false, true);
+        }
+      });
+      document.addEventListener('click', (event) => {
+        if (expanded && !navigation.contains(event.target) && !button.contains(event.target)) {
+          setExpanded(false, navigation.contains(document.activeElement));
+        }
+      });
+      document.addEventListener('focusin', (event) => {
+        if (expanded && !navigation.contains(event.target) && event.target !== button) setExpanded(false);
+      });
+      desktop.addEventListener('change', () => {
+        const active = document.activeElement;
+        setExpanded(false);
+        if (!desktop.matches && navigation.contains(active)) button.focus();
+        if (desktop.matches && active === button) navigation.querySelector('a').focus();
+        updateHeaderHeight();
+      });
+      window.addEventListener('resize', updateHeaderHeight);
+      if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+      // Enhance only after the event handlers are installed; otherwise links remain visible.
+      setExpanded(false);
+      header.classList.add('nav-ready');
+      updateHeaderHeight();
+    })();
+  </script>
+  <script>
+    (() => {
+      const motion = window.matchMedia('(prefers-reduced-motion:reduce)');
+      if (motion.matches || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
+      // Never hide content while waiting for JS. Only animate sections entering from below.
+      const upcoming = [...document.querySelectorAll('.reveal')]
+        .filter(element => element.getBoundingClientRect().top >= window.innerHeight);
+      const animations = new Set();
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          observer.unobserve(entry.target);
+          if (motion.matches) continue;
+          const animation = entry.target.animate([
+            { opacity:0.65, transform:'translateY(12px)' },
+            { opacity:1, transform:'translateY(0)' }
+          ], { duration:500, easing:'ease-out' });
+          animations.add(animation);
+          animation.onfinish = animation.oncancel = () => animations.delete(animation);
+        }
+      }, { threshold:0 });
+      upcoming.forEach(element => observer.observe(element));
+      motion.addEventListener('change', () => {
+        if (!motion.matches) return;
+        observer.disconnect();
+        animations.forEach(animation => animation.cancel());
+        animations.clear();
+      });
+    })();
   </script>
 </body>
 </html>
