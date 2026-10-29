@@ -1,0 +1,11 @@
+{
+  "name": "ilya100-tutor-site",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -i ./css/tailwind.css -o ./css/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

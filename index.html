@@ -5,39 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Илья Игнатенков — репетитор по математике, информатике и Python</title>
   <meta name="description" content="Илья Игнатенков — репетитор по математике, информатике и Python. ЕГЭ/ОГЭ, школьная программа, индивидуальные и групповые занятия онлайн. Связь: Telegram, MAX и электронная почта."/>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#0b0f1a',
-            card: '#101726',
-            accent: '#6ee7b7',
-            accent2: '#60a5fa',
-          },
-          boxShadow: {
-            glow: '0 0 0 1px rgba(110,231,183,.25), 0 0 20px rgba(96,165,250,.15)'
-          },
-          keyframes: {
-            floaty: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-6px)' }
-            },
-            fadeUp: {
-              '0%': { opacity: 0, transform: 'translateY(12px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' }
-            }
-          },
-          animation: {
-            floaty: 'floaty 5s ease-in-out infinite',
-            fadeUp: 'fadeUp .8s ease forwards'
-          }
-        }
-      }
-    }
-  </script>
   <link rel="icon" type="image/x-icon" href="./favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
@@ -402,6 +369,8 @@
       *, *::before, *::after { animation:none !important; transition:none !important; }
     }
   </style>
+  <!-- Preserve the cascade order used by the former Tailwind Play CDN. -->
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="text-slate-200 antialiased selection:bg-accent/20">
   <header class="site-header sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-bg/70 bg-bg/80 border-b border-white/5">
