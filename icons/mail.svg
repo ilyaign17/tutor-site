@@ -1,0 +1,27 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="b1" x1="40" y1="60" x2="214" y2="192" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#72E6DB"/>
+      <stop offset="0.5" stop-color="#40BBFF"/>
+      <stop offset="1" stop-color="#2A63FF"/>
+    </linearGradient>
+    <linearGradient id="b2" x1="64" y1="70" x2="190" y2="136" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A4F5EE"/>
+      <stop offset="1" stop-color="#71B4FF"/>
+    </linearGradient>
+    <filter id="glow3" x="22" y="46" width="212" height="166" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="2.8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.27 0 0 0 0 0.75 0 0 0 0 1 0 0 0 0.14 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g filter="url(#glow3)">
+    <rect x="54" y="56" width="148" height="132" rx="22" fill="url(#b1)"/>
+    <path d="M54 77L119.761 132.841C124.47 136.84 131.53 136.84 136.239 132.841L202 77" stroke="#DBFFFF" stroke-opacity="0.85" stroke-width="3" stroke-linecap="round"/>
+    <path d="M54 167L101.5 123.5" stroke="#60D1FF" stroke-opacity="0.68" stroke-width="2" stroke-linecap="round"/>
+    <path d="M202 167L154.5 123.5" stroke="#3E74FF" stroke-opacity="0.76" stroke-width="2" stroke-linecap="round"/>
+    <path d="M54 77V76C54 64.9543 62.9543 56 74 56H182C193.046 56 202 64.9543 202 76V77L136.239 132.841C131.53 136.84 124.47 136.84 119.761 132.841L54 77Z" fill="url(#b2)" fill-opacity="0.34"/>
+    <path d="M72 68H184" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="3" stroke-linecap="round"/>
+    <path d="M85 83C111 72 145 72 171 83" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+</svg>
