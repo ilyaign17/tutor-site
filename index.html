@@ -175,8 +175,6 @@
     .content-section .surface-card { padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.7); box-shadow:var(--shadow-card); --tw-ring-shadow:0 0 #0000; }
     .content-section > .grid { gap:var(--space-5); margin-top:var(--space-5); }
     .content-section .price-value { color:var(--color-text); font-size:var(--font-value); font-weight:650; line-height:1.3; letter-spacing:-.02em; }
-    .content-section .fact-value { color:var(--color-text); font-size:var(--font-h3); font-weight:600; line-height:1.4; letter-spacing:-.015em; }
-    .content-section .fact-number { font-size:var(--font-value); line-height:1.3; }
     .content-section .text-sm { font-size:var(--font-small); color:var(--color-muted); }
     .content-section .faq-panel { margin-top:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.6); box-shadow:none; --tw-ring-shadow:0 0 #0000; }
     .faq-panel details { padding:var(--space-5); border-color:var(--color-border); }
@@ -278,6 +276,58 @@
     @media (max-width:479px) { .pricing-action .button { width:100%; } }
     @media (hover:hover) { .pricing-format:hover { border-color:var(--color-border-hover); background:rgba(20,30,47,.8); } }
 
+    .lesson-section .lesson-subtitle { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-lead); }
+    .lesson-block { margin-top:var(--space-6); padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.75); }
+    .lesson-layout { display:grid; gap:var(--space-5); }
+    .lesson-block:not(.is-enhanced) .lesson-layout { grid-template-columns:minmax(0, 1fr); }
+    .lesson-controls { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--space-2); }
+    .lesson-controls[hidden] { display:none; }
+    .lesson-tab { display:flex; align-items:center; justify-content:center; gap:var(--space-3); min-width:0; min-height:48px; padding:var(--space-3) var(--space-2); border:1px solid transparent; border-radius:var(--radius-button); background:transparent; color:var(--color-muted); font:inherit; font-size:var(--font-small); font-weight:500; cursor:pointer; transition:background var(--duration), border-color var(--duration), color var(--duration); }
+    .lesson-tab[aria-selected="true"] { border-color:var(--color-border-hover); background:rgba(139,223,197,.06); color:var(--color-accent); }
+    .lesson-tab-index { display:none; color:var(--color-muted); font-size:var(--font-small); }
+    .lesson-body { min-width:0; }
+    .lesson-panels { display:grid; gap:var(--space-5); }
+    .lesson-panel { min-width:0; }
+    .lesson-panel:focus-visible { outline:2px solid var(--color-accent); outline-offset:6px; border-radius:var(--radius-small); }
+    .lesson-panel + .lesson-panel { padding-top:var(--space-5); border-top:1px solid var(--color-border); }
+    .lesson-section .lesson-panel h3 { margin:0; }
+    .lesson-section .lesson-panel p { max-width:60ch; margin:var(--space-4) 0 0; font-size:var(--font-body); }
+    /* Invisible panels still size the grid, preventing jumps when the selected stage changes. */
+    .is-enhanced .lesson-panels { gap:0; }
+    .is-enhanced .lesson-panel { grid-area:1 / 1; align-self:start; padding:0; border:0; }
+    .is-enhanced .lesson-panel[aria-hidden="true"] { visibility:hidden; pointer-events:none; }
+    .lesson-scheme { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); margin:var(--space-5) 0 0; padding:var(--space-5) 0 0; border-top:1px solid var(--color-border); list-style:none; }
+    .lesson-node { position:relative; display:flex; flex-direction:column; align-items:center; gap:var(--space-2); min-width:0; color:var(--color-muted); font-size:var(--font-small); line-height:1.5; transition:color var(--duration); }
+    .lesson-node:not(:last-child)::after { content:''; position:absolute; top:18px; left:calc(50% + 24px); width:calc(100% - 48px); height:1px; background:var(--color-border); }
+    .lesson-node-icon { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--color-border); border-radius:50%; transition:border-color var(--duration), background var(--duration); }
+    .lesson-node svg { width:18px; height:18px; }
+    .lesson-node.is-active { color:var(--color-accent); }
+    .lesson-node.is-active .lesson-node-icon { border-color:var(--color-accent); background:rgba(139,223,197,.06); }
+    .lesson-node:nth-child(2).is-active { color:var(--color-blue); }
+    .lesson-node:nth-child(2).is-active .lesson-node-icon { border-color:var(--color-blue); background:rgba(140,188,232,.06); }
+    .lesson-section .lesson-stage-label { display:none; margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-small); line-height:1.5; }
+    @media (max-width:640px) {
+      .lesson-scheme { gap:var(--space-2); padding:0; border-top:0; }
+      .lesson-scheme .lesson-node { display:block; height:3px; border-radius:2px; background:var(--color-border); transition:background-color var(--duration); }
+      .lesson-scheme .lesson-node.is-active { background:var(--color-accent); }
+      .lesson-scheme .lesson-node > span, .lesson-scheme .lesson-node::after { display:none; }
+      .is-enhanced .lesson-stage-label { display:block; }
+    }
+    .lesson-action { margin-top:var(--space-5); }
+    @media (max-width:479px) {
+      .lesson-block { padding:var(--space-4); }
+      .lesson-controls { gap:var(--space-1); }
+      .lesson-action .button { width:100%; }
+    }
+    @media (min-width:768px) { .lesson-block { padding:var(--space-6); } }
+    @media (min-width:1024px) {
+      .lesson-layout { grid-template-columns:220px minmax(0, 1fr); gap:var(--space-7); }
+      .lesson-controls { grid-template-columns:minmax(0, 1fr); align-content:start; gap:var(--space-3); padding-right:var(--space-5); border-right:1px solid var(--color-border); }
+      .lesson-tab { justify-content:flex-start; padding-inline:var(--space-4); font-size:var(--font-body); }
+      .lesson-tab-index { display:inline; }
+    }
+    @media (hover:hover) { .lesson-tab:hover { color:var(--color-text); background:rgba(255,255,255,.035); } }
+
     .contact-intro { max-width:42em; margin:var(--space-4) 0 0; }
     .contact-grid { display:grid; grid-template-columns:minmax(0, 1fr); grid-auto-rows:1fr; gap:var(--space-5); margin-top:var(--space-5); }
     .contact-card { display:flex; flex-direction:column; align-items:stretch; gap:var(--space-4); min-width:0; padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.7); box-shadow:var(--shadow-card); }
@@ -311,7 +361,7 @@
         <a href="#about" class="hover:text-white">Обо мне</a>
         <a href="#services" class="hover:text-white">Направления</a>
         <a href="#pricing" class="hover:text-white">Цены</a>
-        <a href="#facts" class="hover:text-white">Почему я</a>
+        <a href="#facts" class="hover:text-white">Как проходят занятия</a>
         <a href="#reviews" class="hover:text-white">Отзывы</a>
         <a href="#faq" class="hover:text-white">FAQ</a>
         <a href="#contacts" class="hover:text-white">Контакты</a>
@@ -474,34 +524,41 @@
       <div class="pricing-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
     </section>
 
-    <section id="facts" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">Почему выбирают меня</h2>
-      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value fact-number text-4xl font-extrabold text-white">88–95+</p>
-          <p class="mt-2 text-slate-300">Баллы учеников на ЕГЭ по информатике и математике у сильных групп.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value fact-number text-4xl font-extrabold text-white">25+ баллов</p>
-          <p class="mt-2 text-slate-300">Средний прирост результатов за 2–3 месяца регулярных занятий.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Python + практика</p>
-          <p class="mt-2 text-slate-300">Даю практические задачи и мини‑проекты: от алгоритмов до работы с данными.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Личный план</p>
-          <p class="mt-2 text-slate-300">Диагностика, цели, календарь тем, контроль прогресса каждую неделю.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Простые объяснения</p>
-          <p class="mt-2 text-slate-300">Сложные темы через понятные аналоги, визуализации и разборы в реальном времени.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Связь между занятиями</p>
-          <p class="mt-2 text-slate-300">Оперативная обратная связь по домашке и вопросам между занятиями.</p>
+    <section id="facts" class="lesson-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="lesson-title">
+      <h2 id="lesson-title">Как проходят занятия</h2>
+      <p class="lesson-subtitle">Важно не просто получить ответ, а понять, как к нему прийти</p>
+      <div class="lesson-block">
+        <div class="lesson-layout">
+          <div class="lesson-controls" aria-label="Этапы занятия" hidden>
+            <button id="lesson-tab-understand" class="lesson-tab" type="button" aria-controls="lesson-panel-understand"><span class="lesson-tab-index" aria-hidden="true">01</span>Понять</button>
+            <button id="lesson-tab-solve" class="lesson-tab" type="button" aria-controls="lesson-panel-solve"><span class="lesson-tab-index" aria-hidden="true">02</span>Решить</button>
+            <button id="lesson-tab-check" class="lesson-tab" type="button" aria-controls="lesson-panel-check"><span class="lesson-tab-index" aria-hidden="true">03</span>Проверить</button>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-panels">
+              <article id="lesson-panel-understand" class="lesson-panel" aria-labelledby="lesson-understand-title">
+                <h3 id="lesson-understand-title">Разбираемся в задаче</h3>
+                <p>Выделяем главное в условии, вспоминаем необходимые темы и разбираем сложные моменты на простых примерах.</p>
+              </article>
+              <article id="lesson-panel-solve" class="lesson-panel" aria-labelledby="lesson-solve-title">
+                <h3 id="lesson-solve-title">Учимся решать самостоятельно</h3>
+                <p>Обсуждаем последовательность действий, а затем ученик применяет разобранный подход на практике.</p>
+              </article>
+              <article id="lesson-panel-check" class="lesson-panel" aria-labelledby="lesson-check-title">
+                <h3 id="lesson-check-title">Находим и исправляем ошибки</h3>
+                <p>Проверяем ход решения, разбираем ошибки и закрепляем знания на новых заданиях.</p>
+              </article>
+            </div>
+            <ol class="lesson-scheme" aria-hidden="true">
+              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM9 8h6M9 12h6M9 16h3"/></svg></span><span>Условие</span></li>
+              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15z"/></svg></span><span>Решение</span></li>
+              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>Проверка</span></li>
+            </ol>
+            <p class="lesson-stage-label" role="status" aria-atomic="true"></p>
+          </div>
         </div>
       </div>
+      <div class="lesson-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
     </section>
 
     <section id="reviews" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -614,6 +671,73 @@
     </section>
   </main>
 
+  <script id="lesson-stage-script">
+    (() => {
+      const block = document.querySelector('.lesson-block');
+      const controls = block.querySelector('.lesson-controls');
+      const tabs = [...controls.querySelectorAll('button')];
+      const panels = [...block.querySelectorAll('.lesson-panel')];
+      const nodes = [...block.querySelectorAll('.lesson-node')];
+      const stageLabel = block.querySelector('.lesson-stage-label');
+      const vertical = window.matchMedia('(min-width:1024px)');
+      const reduced = window.matchMedia('(prefers-reduced-motion:reduce)');
+      let active = -1;
+      let animation;
+
+      function selectStage(index, focus = false, animate = true) {
+        const changed = index !== active;
+        if (animation) animation.cancel();
+        tabs.forEach((tab, i) => {
+          tab.setAttribute('aria-selected', String(i === index));
+          tab.tabIndex = i === index ? 0 : -1;
+          panels[i].setAttribute('aria-hidden', String(i !== index));
+          panels[i].inert = i !== index;
+          panels[i].tabIndex = i === index ? 0 : -1;
+          nodes[i].classList.toggle('is-active', i === index);
+        });
+        active = index;
+        stageLabel.textContent = `Этап ${index + 1} из ${tabs.length}`;
+        if (focus) tabs[index].focus();
+        if (changed && animate && !reduced.matches && panels[index].animate) {
+          animation = panels[index].animate([
+            { opacity:.75, transform:'translateY(6px)' },
+            { opacity:1, transform:'translateY(0)' }
+          ], { duration:180, easing:'ease-out' });
+        }
+      }
+
+      function updateOrientation() {
+        controls.setAttribute('aria-orientation', vertical.matches ? 'vertical' : 'horizontal');
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectStage(index));
+        tab.addEventListener('keydown', (event) => {
+          let next;
+          if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          else if (event.key === (vertical.matches ? 'ArrowDown' : 'ArrowRight')) next = (index + 1) % tabs.length;
+          else if (event.key === (vertical.matches ? 'ArrowUp' : 'ArrowLeft')) next = (index + tabs.length - 1) % tabs.length;
+          if (next === undefined) return;
+          event.preventDefault();
+          selectStage(next, true);
+        });
+      });
+      vertical.addEventListener('change', updateOrientation);
+      reduced.addEventListener('change', () => { if (reduced.matches && animation) animation.cancel(); });
+      // All content stays visible until enhancement is fully initialized.
+      controls.setAttribute('role', 'tablist');
+      tabs.forEach((tab, i) => {
+        tab.setAttribute('role', 'tab');
+        panels[i].setAttribute('role', 'tabpanel');
+        panels[i].setAttribute('aria-labelledby', tab.id);
+      });
+      updateOrientation();
+      selectStage(0, false, false);
+      block.classList.add('is-enhanced');
+      controls.hidden = false;
+    })();
+  </script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
