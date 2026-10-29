@@ -148,7 +148,7 @@
       .hero-layout { grid-template-columns:minmax(0, 1.6fr) minmax(0, 1fr); gap:var(--space-8); }
       .hero-portrait { max-width:400px; margin-right:0; }
     }
-    @media (max-width:767px) {
+    @media (max-width:1023px) {
       .hero-layout { gap:var(--space-5); padding-top:var(--space-5); padding-bottom:var(--space-6); }
       .hero-portrait { grid-row:1; max-width:clamp(192px, 56vw, 224px); position:relative; }
       .hero-copy { grid-row:2; }
@@ -162,6 +162,11 @@
       .hero-topics { margin-top:20px; gap:var(--space-2) var(--space-4); }
       .hero-topics li { display:flex; align-items:center; gap:var(--space-2); }
       .hero-topics li::before, .hero-topics li + li::before { content:''; width:3px; height:3px; flex-shrink:0; border-radius:50%; background:var(--color-muted); margin:0; }
+    }
+    @media (max-width:479px) {
+      .hero-layout { gap:20px; padding-top:20px; padding-bottom:var(--space-5); }
+      .hero-portrait { max-width:clamp(176px, 50vw, 200px); }
+      .hero-actions, .hero-topics { margin-top:var(--space-4); }
     }
     @keyframes hero-enter { from { opacity:.85; transform:translateY(8px); } to { opacity:1; transform:none; } }
     @media (prefers-reduced-motion:no-preference) {
@@ -202,9 +207,8 @@
     @keyframes faq-answer-enter { from { opacity:.8; transform:translateY(4px); } to { opacity:1; transform:none; } }
     @media (prefers-reduced-motion:no-preference) { .faq-question[open] .faq-answer { animation:faq-answer-enter var(--duration) ease-out; } }
     @media (hover:hover) { .faq-question summary:hover .faq-question-text { color:var(--color-accent); } }
-    .content-section .closing-panel { padding:clamp(24px, 3vw, 40px); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.7); box-shadow:none; --tw-ring-shadow:0 0 #0000; }
-    .closing-panel .button { flex-shrink:0; }
-    .content-section .site-footer { margin-top:var(--space-5); color:var(--color-muted); font-size:var(--font-small); line-height:1.7; }
+    .site-footer { padding-bottom:var(--space-5); color:var(--color-muted); font-size:var(--font-small); line-height:1.7; text-align:center; }
+    .site-footer p { margin:0; }
 
     .about-layout { display:grid; grid-template-columns:minmax(0, 1fr); grid-template-areas:'intro' 'story' 'education' 'practice'; gap:var(--space-5); }
     .about-intro { grid-area:intro; min-width:0; }
@@ -381,6 +385,17 @@
     .contact-card .contact-description { margin:0; color:var(--color-body); font-size:var(--font-small); line-height:1.65; }
     .contact-card .contact-address { margin:0; padding-top:var(--space-4); border-top:1px solid var(--color-border); color:var(--color-muted); font-size:var(--font-small); overflow-wrap:anywhere; }
     .contact-card .contact-action { margin-top:auto; width:100%; }
+    @media (max-width:1023px) {
+      .contact-card { padding:20px; gap:var(--space-3); }
+      .contact-card .contact-description, .contact-card .contact-address { font-size:var(--font-body); }
+    }
+    @media (min-width:640px) and (max-width:1023px) {
+      .contact-card { display:grid; grid-template-columns:minmax(0, 1fr) 220px; column-gap:var(--space-5); align-items:center; }
+      .contact-heading { grid-column:1; grid-row:1; }
+      .contact-card .contact-description { grid-column:1; grid-row:2; }
+      .contact-card .contact-address { grid-column:2; grid-row:1; padding:0; border:0; white-space:nowrap; }
+      .contact-card .contact-action { grid-column:2; grid-row:2; margin:0; }
+    }
     @media (min-width:1024px) { .contact-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
     @media (prefers-reduced-motion:reduce) {
       html { scroll-behavior:auto; }
@@ -749,17 +764,10 @@
     </section>
 
 
-    <section class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="closing-panel rounded-3xl bg-gradient-to-r from-card/80 to-card/60 p-8 ring-1 ring-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="text-white text-xl font-bold">Готовы начать?</h3>
-          <p class="text-slate-300 mt-1">Свяжитесь удобным способом — подберу время и отправлю план первого занятия.</p>
-        </div>
-        <a href="#contacts" class="button button-primary">Обсудить занятия</a>
-      </div>
-      <p class="site-footer text-center text-xs text-slate-500 mt-6">© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
-    </section>
   </main>
+  <footer class="site-footer max-w-7xl">
+    <p>© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
+  </footer>
 
   <script id="lesson-stage-script">
     (() => {
