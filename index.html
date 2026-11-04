@@ -4,40 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Илья Игнатенков — репетитор по математике, информатике и Python</title>
-  <meta name="description" content="Илья Игнатенков — репетитор по математике, информатике и Python. ЕГЭ/ОГЭ, школьная программа, индивидуальные и групповые занятия онлайн. Связь: Telegram, MAX и электронная почта."/>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#0b0f1a',
-            card: '#101726',
-            accent: '#6ee7b7',
-            accent2: '#60a5fa',
-          },
-          boxShadow: {
-            glow: '0 0 0 1px rgba(110,231,183,.25), 0 0 20px rgba(96,165,250,.15)'
-          },
-          keyframes: {
-            floaty: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-6px)' }
-            },
-            fadeUp: {
-              '0%': { opacity: 0, transform: 'translateY(12px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' }
-            }
-          },
-          animation: {
-            floaty: 'floaty 5s ease-in-out infinite',
-            fadeUp: 'fadeUp .8s ease forwards'
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="description" content="Онлайн-занятия по математике, информатике и Python с Ильёй Игнатенковым. Подготовка к ЕГЭ и ОГЭ, помощь по школьной программе. Индивидуально и в группе.">
+  <link rel="canonical" href="https://ilya100.ru/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilya100.ru/">
+  <meta property="og:title" content="Илья Игнатенков — репетитор по математике, информатике и Python">
+  <meta property="og:description" content="Онлайн-занятия по математике, информатике и Python. Подготовка к ЕГЭ и ОГЭ, помощь по школьной программе. Индивидуально и в группе.">
+  <meta property="og:site_name" content="Илья Игнатенков — репетитор">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://ilya100.ru/images/og-preview.png">
+  <meta property="og:image:secure_url" content="https://ilya100.ru/images/og-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Илья Игнатенков — математика, информатика и Python. Онлайн-занятия и подготовка к ЕГЭ и ОГЭ.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Илья Игнатенков — репетитор по математике, информатике и Python">
+  <meta name="twitter:description" content="Онлайн-занятия по математике, информатике и Python. Подготовка к ЕГЭ и ОГЭ, помощь по школьной программе. Индивидуально и в группе.">
+  <meta name="twitter:image" content="https://ilya100.ru/images/og-preview.png">
+  <meta name="twitter:image:alt" content="Илья Игнатенков — математика, информатика и Python. Онлайн-занятия и подготовка к ЕГЭ и ОГЭ.">
   <link rel="icon" type="image/x-icon" href="./favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
@@ -89,14 +76,13 @@
     .navigation-links a { display:flex; align-items:center; min-height:44px; padding:var(--space-2); border-radius:var(--radius-small); color:var(--color-body); font-size:var(--font-small); text-decoration:none; transition:color var(--duration), background var(--duration); }
     .navigation-links a:hover { background:rgba(255,255,255,.035); color:var(--color-text); }
     @media (max-width:1279px) {
-      /* Navigation stays visible in document flow until JS is successfully initialized. */
-      .site-header { position:relative; }
-      .site-header.nav-ready { position:sticky; }
-      .nav-ready .menu-toggle { display:inline-flex; }
-      .nav-ready .site-navigation { position:absolute; top:100%; left:0; right:0; display:grid; grid-template-rows:0fr; visibility:hidden; background:var(--color-surface); border-bottom:1px solid var(--color-border); box-shadow:var(--shadow-card); transition:grid-template-rows .22s ease, visibility 0s .22s; }
-      .nav-ready .site-navigation.is-open { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .22s ease, visibility 0s; }
-      .nav-ready .navigation-clip { min-height:0; overflow:hidden; }
-      .nav-ready .navigation-links { padding:var(--space-3) var(--space-4); max-height:calc(100dvh - var(--header-height, 6rem) - 12px); overflow-y:auto; }
+      /* Establish the compact header before JS; no-JS links are restored below. */
+      .site-header { position:sticky; }
+      .menu-toggle { display:inline-flex; }
+      .site-navigation { position:absolute; top:100%; left:0; right:0; display:grid; grid-template-rows:0fr; visibility:hidden; background:var(--color-surface); border-bottom:1px solid var(--color-border); box-shadow:var(--shadow-card); transition:grid-template-rows .22s ease, visibility 0s .22s; }
+      .site-navigation.is-open { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .22s ease, visibility 0s; }
+      .navigation-clip { min-height:0; overflow:hidden; }
+      .navigation-links { padding:var(--space-3) var(--space-4); max-height:calc(100dvh - var(--header-height, 6rem) - 12px); overflow-y:auto; }
     }
     @media (min-width:640px) { .header-brand { font-size:var(--font-body); } }
     @media (min-width:1280px) {
@@ -134,9 +120,8 @@
     .hero-topics { display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-4); margin:var(--space-5) 0 0; padding:0; list-style:none; color:var(--color-muted); font-size:var(--font-small); line-height:1.6; }
     .hero-topics li + li::before { content:'/'; margin-right:var(--space-4); color:#688095; }
     .hero-portrait { width:100%; max-width:360px; min-width:0; margin:0 auto; }
-    .hero-photo-frame { padding:var(--space-2); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(20,30,47,.45); box-shadow:var(--shadow-card); }
-    .hero-photo { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:calc(var(--radius-large) - var(--space-2)); }
-    .hero-caption { margin-top:var(--space-4); padding-inline:var(--space-2); }
+    .hero-photo { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:16px; }
+    .hero-caption { margin-top:var(--space-4); }
     .hero-caption strong { display:block; color:var(--color-text); font-size:var(--font-body); font-weight:600; }
     .hero-caption span { display:block; margin-top:var(--space-1); color:var(--color-muted); font-size:var(--font-small); line-height:1.6; }
     @media (max-width:479px) {
@@ -146,14 +131,13 @@
     @media (min-width:640px) { .hero-layout { gap:var(--space-7); padding-block:var(--space-8); } }
     @media (min-width:1024px) {
       .hero-layout { grid-template-columns:minmax(0, 1.6fr) minmax(0, 1fr); gap:var(--space-8); }
-      .hero-portrait { max-width:400px; margin-right:0; }
+      /* Preserve the desktop image size and position formerly inside the frame. */
+      .hero-portrait { width:calc(100% - 18px); max-width:382px; margin-right:9px; }
     }
-    @media (max-width:767px) {
+    @media (max-width:1023px) {
       .hero-layout { gap:var(--space-5); padding-top:var(--space-5); padding-bottom:var(--space-6); }
-      .hero-portrait { grid-row:1; max-width:clamp(192px, 56vw, 224px); position:relative; }
+      .hero-portrait { grid-row:1; max-width:clamp(216px, 63vw, 248px); position:relative; }
       .hero-copy { grid-row:2; }
-      .hero-photo-frame { padding:var(--space-1); border-radius:var(--radius-card); background:rgba(20,30,47,.25); box-shadow:none; }
-      .hero-photo { border-radius:calc(var(--radius-card) - var(--space-1)); }
       /* The header already names the teacher; retain the caption for assistive technology. */
       .hero-caption { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
       .hero-eyebrow { margin-bottom:var(--space-3); }
@@ -162,6 +146,16 @@
       .hero-topics { margin-top:20px; gap:var(--space-2) var(--space-4); }
       .hero-topics li { display:flex; align-items:center; gap:var(--space-2); }
       .hero-topics li::before, .hero-topics li + li::before { content:''; width:3px; height:3px; flex-shrink:0; border-radius:50%; background:var(--color-muted); margin:0; }
+    }
+    @media (max-width:479px) {
+      .hero-layout { gap:20px; padding-top:20px; padding-bottom:var(--space-5); }
+      .hero-actions, .hero-topics { margin-top:var(--space-4); }
+    }
+    @media (min-width:768px) and (max-width:1023px) {
+      .hero-layout { grid-template-columns:minmax(0, 1fr) 280px; gap:var(--space-6); padding-block:40px; }
+      .hero-copy { grid-column:1; grid-row:1; }
+      .hero-portrait { grid-column:2; grid-row:1; max-width:280px; }
+      .hero-title { font-size:clamp(2rem, 3.8vw, 2.375rem); }
     }
     @keyframes hero-enter { from { opacity:.85; transform:translateY(8px); } to { opacity:1; transform:none; } }
     @media (prefers-reduced-motion:no-preference) {
@@ -175,18 +169,35 @@
     .content-section .surface-card { padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.7); box-shadow:var(--shadow-card); --tw-ring-shadow:0 0 #0000; }
     .content-section > .grid { gap:var(--space-5); margin-top:var(--space-5); }
     .content-section .price-value { color:var(--color-text); font-size:var(--font-value); font-weight:650; line-height:1.3; letter-spacing:-.02em; }
-    .content-section .fact-value { color:var(--color-text); font-size:var(--font-h3); font-weight:600; line-height:1.4; letter-spacing:-.015em; }
-    .content-section .fact-number { font-size:var(--font-value); line-height:1.3; }
     .content-section .text-sm { font-size:var(--font-small); color:var(--color-muted); }
-    .content-section .faq-panel { margin-top:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.6); box-shadow:none; --tw-ring-shadow:0 0 #0000; }
-    .faq-panel details { padding:var(--space-5); border-color:var(--color-border); }
-    .faq-panel summary { min-height:24px; gap:var(--space-4); color:var(--color-text); font-size:var(--font-body); font-weight:500; line-height:1.6; }
-    .faq-panel summary::-webkit-details-marker { display:none; }
-    .faq-panel summary > span { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; margin:0; color:var(--color-muted); }
-    .faq-panel summary svg { width:20px; height:20px; }
-    .content-section .closing-panel { padding:clamp(24px, 3vw, 40px); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.7); box-shadow:none; --tw-ring-shadow:0 0 #0000; }
-    .closing-panel .button { flex-shrink:0; }
-    .content-section .site-footer { margin-top:var(--space-5); color:var(--color-muted); font-size:var(--font-small); line-height:1.7; }
+    .faq-section .faq-subtitle { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-lead); }
+    .faq-list { margin-top:var(--space-6); border-top:1px solid var(--color-border); }
+    .faq-question { border-bottom:1px solid var(--color-border); transition:border-color var(--duration); }
+    .faq-question summary { display:grid; grid-template-columns:32px minmax(0, 1fr) 20px; align-items:start; gap:var(--space-4); min-height:56px; padding:var(--space-5) 0; list-style:none; cursor:pointer; }
+    .faq-question summary::-webkit-details-marker { display:none; }
+    .faq-question summary::marker { content:''; }
+    .faq-number { padding-top:3px; color:var(--color-muted); font-size:var(--font-small); font-variant-numeric:tabular-nums; line-height:1.6; transition:color var(--duration); }
+    .faq-question-text { color:var(--color-text); font-size:clamp(1rem, .95rem + .2vw, 1.125rem); font-weight:500; line-height:1.6; transition:color var(--duration); }
+    .faq-indicator { width:20px; height:20px; margin-top:4px; color:var(--color-muted); transition:color var(--duration); }
+    .faq-plus-vertical { transform-origin:12px 12px; transition:transform var(--duration), opacity var(--duration); }
+    .faq-question[open] { border-bottom-color:var(--color-border-hover); }
+    .faq-question[open] .faq-number, .faq-question[open] .faq-question-text, .faq-question[open] .faq-indicator { color:var(--color-accent); }
+    .faq-question[open] .faq-plus-vertical { transform:scaleY(0); opacity:0; }
+    .faq-answer { max-width:72ch; margin-left:var(--space-7); padding-bottom:var(--space-5); }
+    .faq-section .faq-answer p { margin:0; font-size:var(--font-body); line-height:1.7; }
+    .faq-section .faq-answer p + p { margin-top:var(--space-3); }
+    .faq-answer a { color:var(--color-accent); text-decoration:underline; text-underline-offset:4px; }
+    .faq-action { margin-top:var(--space-6); }
+    @media (max-width:479px) {
+      .faq-question summary { grid-template-columns:24px minmax(0, 1fr) 20px; gap:var(--space-3); padding-block:20px; }
+      .faq-answer { margin-left:0; padding-bottom:20px; }
+      .faq-action .button { width:100%; }
+    }
+    @keyframes faq-answer-enter { from { opacity:.8; transform:translateY(4px); } to { opacity:1; transform:none; } }
+    @media (prefers-reduced-motion:no-preference) { .faq-question[open] .faq-answer { animation:faq-answer-enter var(--duration) ease-out; } }
+    @media (hover:hover) { .faq-question summary:hover .faq-question-text { color:var(--color-accent); } }
+    .site-footer { padding-bottom:var(--space-5); color:var(--color-muted); font-size:var(--font-small); line-height:1.7; text-align:center; }
+    .site-footer p { margin:0; }
 
     .about-layout { display:grid; grid-template-columns:minmax(0, 1fr); grid-template-areas:'intro' 'story' 'education' 'practice'; gap:var(--space-5); }
     .about-intro { grid-area:intro; min-width:0; }
@@ -278,6 +289,79 @@
     @media (max-width:479px) { .pricing-action .button { width:100%; } }
     @media (hover:hover) { .pricing-format:hover { border-color:var(--color-border-hover); background:rgba(20,30,47,.8); } }
 
+    .lesson-section .lesson-subtitle { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-lead); }
+    .lesson-block { margin-top:var(--space-6); padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.75); }
+    .lesson-layout { display:grid; gap:var(--space-5); }
+    .lesson-block:not(.is-enhanced) .lesson-layout { grid-template-columns:minmax(0, 1fr); }
+    .lesson-controls { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--space-2); }
+    .lesson-controls[hidden] { display:none; }
+    .lesson-tab { display:flex; align-items:center; justify-content:center; gap:var(--space-3); min-width:0; min-height:48px; padding:var(--space-3) var(--space-2); border:1px solid transparent; border-radius:var(--radius-button); background:transparent; color:var(--color-muted); font:inherit; font-size:var(--font-small); font-weight:500; cursor:pointer; transition:background var(--duration), border-color var(--duration), color var(--duration); }
+    .lesson-tab[aria-selected="true"] { border-color:var(--color-border-hover); background:rgba(139,223,197,.06); color:var(--color-accent); }
+    .lesson-tab-index { display:none; color:var(--color-muted); font-size:var(--font-small); }
+    .lesson-body { min-width:0; }
+    .lesson-panels { display:grid; gap:var(--space-5); }
+    .lesson-panel { min-width:0; }
+    .lesson-panel:focus-visible { outline:2px solid var(--color-accent); outline-offset:6px; border-radius:var(--radius-small); }
+    .lesson-panel + .lesson-panel { padding-top:var(--space-5); border-top:1px solid var(--color-border); }
+    .lesson-section .lesson-panel h3 { margin:0; }
+    .lesson-section .lesson-panel p { max-width:60ch; margin:var(--space-4) 0 0; font-size:var(--font-body); }
+    /* Invisible panels still size the grid, preventing jumps when the selected stage changes. */
+    .is-enhanced .lesson-panels { gap:0; }
+    .is-enhanced .lesson-panel { grid-area:1 / 1; align-self:start; padding:0; border:0; }
+    .is-enhanced .lesson-panel[aria-hidden="true"] { visibility:hidden; pointer-events:none; }
+    .lesson-scheme { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); margin:var(--space-5) 0 0; padding:var(--space-5) 0 0; border-top:1px solid var(--color-border); list-style:none; }
+    .lesson-node { position:relative; display:flex; flex-direction:column; align-items:center; gap:var(--space-2); min-width:0; color:var(--color-muted); font-size:var(--font-small); line-height:1.5; transition:color var(--duration); }
+    .lesson-node:not(:last-child)::after { content:''; position:absolute; top:18px; left:calc(50% + 24px); width:calc(100% - 48px); height:1px; background:var(--color-border); }
+    .lesson-node-icon { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--color-border); border-radius:50%; transition:border-color var(--duration), background var(--duration); }
+    .lesson-node svg { width:18px; height:18px; }
+    .lesson-node.is-active { color:var(--color-accent); }
+    .lesson-node.is-active .lesson-node-icon { border-color:var(--color-accent); background:rgba(139,223,197,.06); }
+    .lesson-node:nth-child(2).is-active { color:var(--color-blue); }
+    .lesson-node:nth-child(2).is-active .lesson-node-icon { border-color:var(--color-blue); background:rgba(140,188,232,.06); }
+    .lesson-section .lesson-stage-label { display:none; margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-small); line-height:1.5; }
+    @media (max-width:640px) {
+      .lesson-scheme { gap:var(--space-2); padding:0; border-top:0; }
+      .lesson-scheme .lesson-node { display:block; height:3px; border-radius:2px; background:var(--color-border); transition:background-color var(--duration); }
+      .lesson-scheme .lesson-node.is-active { background:var(--color-accent); }
+      .lesson-scheme .lesson-node > span, .lesson-scheme .lesson-node::after { display:none; }
+      .is-enhanced .lesson-stage-label { display:block; }
+    }
+    .lesson-action { margin-top:var(--space-5); }
+    @media (max-width:479px) {
+      .lesson-block { padding:var(--space-4); }
+      .lesson-controls { gap:var(--space-1); }
+      .lesson-action .button { width:100%; }
+    }
+    @media (min-width:768px) { .lesson-block { padding:var(--space-6); } }
+    @media (min-width:1024px) {
+      .lesson-layout { grid-template-columns:220px minmax(0, 1fr); gap:var(--space-7); }
+      .lesson-controls { grid-template-columns:minmax(0, 1fr); align-content:start; gap:var(--space-3); padding-right:var(--space-5); border-right:1px solid var(--color-border); }
+      .lesson-tab { justify-content:flex-start; padding-inline:var(--space-4); font-size:var(--font-body); }
+      .lesson-tab-index { display:inline; }
+    }
+    @media (hover:hover) { .lesson-tab:hover { color:var(--color-text); background:rgba(255,255,255,.035); } }
+
+    .reviews-section .reviews-subtitle { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-lead); }
+    .review-feature { display:grid; grid-template-columns:minmax(0, 1fr); gap:var(--space-5); margin-top:var(--space-6); padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.65); }
+    .review-result, .review-feature-story { min-width:0; }
+    .reviews-section .review-result-value { display:flex; align-items:center; flex-wrap:nowrap; gap:var(--space-3); margin:0; color:var(--color-muted); font-size:clamp(2rem, 1.7rem + 1vw, 2.75rem); font-weight:600; line-height:1.2; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+    .review-result-value .review-result-arrow { font-size:.65em; font-weight:400; }
+    .review-result-value strong { color:var(--color-accent); font-weight:650; }
+    .reviews-section .review-result-caption { max-width:25ch; margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-small); line-height:1.65; }
+    .reviews-section .review-author { margin:0; font-size:var(--font-h3); line-height:1.5; }
+    .review-author .review-role { color:var(--color-muted); font-size:var(--font-small); font-weight:400; letter-spacing:0; }
+    .reviews-section blockquote { margin:var(--space-3) 0 0; padding:0; }
+    .reviews-section .review-text { max-width:62ch; margin:0; color:var(--color-body); font-size:var(--font-body); line-height:var(--line-body); overflow-wrap:break-word; }
+    .reviews-section .review-feature .review-text { font-size:var(--font-lead); }
+    .review-voices { display:grid; grid-template-columns:minmax(0, 1fr); gap:var(--space-5); margin-top:var(--space-6); }
+    .review-voice { min-width:0; padding-top:var(--space-5); border-top:1px solid var(--color-border); }
+    @media (min-width:768px) {
+      .review-feature { grid-template-columns:minmax(0, .75fr) minmax(0, 1.65fr); align-items:start; gap:var(--space-6); padding:var(--space-6); }
+      .review-result { padding-right:var(--space-5); }
+      .review-feature-story { padding-left:var(--space-6); border-left:1px solid var(--color-border); }
+      .review-voices { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:var(--space-6) var(--space-7); }
+    }
+
     .contact-intro { max-width:42em; margin:var(--space-4) 0 0; }
     .contact-grid { display:grid; grid-template-columns:minmax(0, 1fr); grid-auto-rows:1fr; gap:var(--space-5); margin-top:var(--space-5); }
     .contact-card { display:flex; flex-direction:column; align-items:stretch; gap:var(--space-4); min-width:0; padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-card); background:rgba(16,24,39,.7); box-shadow:var(--shadow-card); }
@@ -290,12 +374,36 @@
     .contact-card .contact-description { margin:0; color:var(--color-body); font-size:var(--font-small); line-height:1.65; }
     .contact-card .contact-address { margin:0; padding-top:var(--space-4); border-top:1px solid var(--color-border); color:var(--color-muted); font-size:var(--font-small); overflow-wrap:anywhere; }
     .contact-card .contact-action { margin-top:auto; width:100%; }
+    @media (max-width:1023px) {
+      .contact-card { padding:20px; gap:var(--space-3); }
+      .contact-card .contact-description, .contact-card .contact-address { font-size:var(--font-body); }
+    }
+    @media (min-width:640px) and (max-width:1023px) {
+      .contact-card { display:grid; grid-template-columns:minmax(0, 1fr) 220px; column-gap:var(--space-5); align-items:center; }
+      .contact-heading { grid-column:1; grid-row:1; }
+      .contact-card .contact-description { grid-column:1; grid-row:2; }
+      .contact-card .contact-address { grid-column:2; grid-row:1; padding:0; border:0; white-space:nowrap; }
+      .contact-card .contact-action { grid-column:2; grid-row:2; margin:0; }
+    }
     @media (min-width:1024px) { .contact-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
     @media (prefers-reduced-motion:reduce) {
       html { scroll-behavior:auto; }
       *, *::before, *::after { animation:none !important; transition:none !important; }
     }
   </style>
+  <!-- Preserve the cascade order used by the former Tailwind Play CDN. -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <noscript>
+    <style>
+      @media (max-width:1279px) {
+        .site-header { position:relative; }
+        .menu-toggle { display:none; }
+        .site-navigation { position:static; display:block; visibility:visible; background:transparent; border:0; box-shadow:none; }
+        .navigation-clip { overflow:visible; }
+        .navigation-links { padding:0; max-height:none; overflow:visible; }
+      }
+    </style>
+  </noscript>
 </head>
 <body class="text-slate-200 antialiased selection:bg-accent/20">
   <header class="site-header sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-bg/70 bg-bg/80 border-b border-white/5">
@@ -311,7 +419,7 @@
         <a href="#about" class="hover:text-white">Обо мне</a>
         <a href="#services" class="hover:text-white">Направления</a>
         <a href="#pricing" class="hover:text-white">Цены</a>
-        <a href="#facts" class="hover:text-white">Почему я</a>
+        <a href="#facts" class="hover:text-white">Как проходят занятия</a>
         <a href="#reviews" class="hover:text-white">Отзывы</a>
         <a href="#faq" class="hover:text-white">FAQ</a>
         <a href="#contacts" class="hover:text-white">Контакты</a>
@@ -351,9 +459,10 @@
           </ul>
         </div>
         <figure class="hero-portrait">
-          <div class="hero-photo-frame">
-            <img src="./images/avatar.png" alt="Илья Игнатенков — репетитор по математике и информатике" width="512" height="512" fetchpriority="high" class="hero-photo">
-          </div>
+          <picture style="display:block">
+            <source srcset="./images/avatar-new.webp" type="image/webp">
+            <img src="./images/avatar-new.png" alt="Илья Игнатенков — репетитор по математике и информатике" width="768" height="768" fetchpriority="high" class="hero-photo">
+          </picture>
           <figcaption class="hero-caption">
             <div><strong>Илья Игнатенков</strong><span>Репетитор по математике, информатике и Python</span></div>
           </figcaption>
@@ -474,105 +583,161 @@
       <div class="pricing-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
     </section>
 
-    <section id="facts" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">Почему выбирают меня</h2>
-      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value fact-number text-4xl font-extrabold text-white">88–95+</p>
-          <p class="mt-2 text-slate-300">Баллы учеников на ЕГЭ по информатике и математике у сильных групп.</p>
+    <section id="facts" class="lesson-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="lesson-title">
+      <h2 id="lesson-title">Как проходят занятия</h2>
+      <p class="lesson-subtitle">Важно не просто получить ответ, а понять, как к нему прийти</p>
+      <div class="lesson-block">
+        <div class="lesson-layout">
+          <div class="lesson-controls" aria-label="Этапы занятия" hidden>
+            <button id="lesson-tab-understand" class="lesson-tab" type="button" aria-controls="lesson-panel-understand"><span class="lesson-tab-index" aria-hidden="true">01</span>Понять</button>
+            <button id="lesson-tab-solve" class="lesson-tab" type="button" aria-controls="lesson-panel-solve"><span class="lesson-tab-index" aria-hidden="true">02</span>Решить</button>
+            <button id="lesson-tab-check" class="lesson-tab" type="button" aria-controls="lesson-panel-check"><span class="lesson-tab-index" aria-hidden="true">03</span>Проверить</button>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-panels">
+              <article id="lesson-panel-understand" class="lesson-panel" aria-labelledby="lesson-understand-title">
+                <h3 id="lesson-understand-title">Разбираемся в задаче</h3>
+                <p>Выделяем главное в условии, вспоминаем необходимые темы и разбираем сложные моменты на простых примерах.</p>
+              </article>
+              <article id="lesson-panel-solve" class="lesson-panel" aria-labelledby="lesson-solve-title">
+                <h3 id="lesson-solve-title">Учимся решать самостоятельно</h3>
+                <p>Обсуждаем последовательность действий, а затем ученик применяет разобранный подход на практике.</p>
+              </article>
+              <article id="lesson-panel-check" class="lesson-panel" aria-labelledby="lesson-check-title">
+                <h3 id="lesson-check-title">Находим и исправляем ошибки</h3>
+                <p>Проверяем ход решения, разбираем ошибки и закрепляем знания на новых заданиях.</p>
+              </article>
+            </div>
+            <ol class="lesson-scheme" aria-hidden="true">
+              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM9 8h6M9 12h6M9 16h3"/></svg></span><span>Условие</span></li>
+              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15z"/></svg></span><span>Решение</span></li>
+              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>Проверка</span></li>
+            </ol>
+            <p class="lesson-stage-label" role="status" aria-atomic="true"></p>
+          </div>
         </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value fact-number text-4xl font-extrabold text-white">25+ баллов</p>
-          <p class="mt-2 text-slate-300">Средний прирост результатов за 2–3 месяца регулярных занятий.</p>
+      </div>
+      <div class="lesson-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
+    </section>
+
+    <section id="reviews" class="reviews-section content-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Отзывы и результаты учеников</h2>
+      <p class="reviews-subtitle">Что говорят о занятиях ученики и родители</p>
+      <article class="review-feature reveal" aria-labelledby="review-sadzhat">
+        <div class="review-result">
+          <p class="review-result-value"><span>51</span><span class="review-result-arrow">→</span><strong>88</strong></p>
+          <p class="review-result-caption">За 2 месяца · по словам ученика</p>
         </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Python + практика</p>
-          <p class="mt-2 text-slate-300">Даю практические задачи и мини‑проекты: от алгоритмов до работы с данными.</p>
+        <div class="review-feature-story">
+          <h3 id="review-sadzhat" class="review-author">Саджат<span class="review-role">, ученик</span></h3>
+          <blockquote><p class="review-text">Прекрасный репетитор! Занимались лишь 2 месяца, подняли бал с 51 до 88. Очень доволен результатом, человек знает своё дело, очень доходчиво и четко объяснил каждое задание. Очень приятен в общении. В общем 10/10</p></blockquote>
         </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Личный план</p>
-          <p class="mt-2 text-slate-300">Диагностика, цели, календарь тем, контроль прогресса каждую неделю.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Простые объяснения</p>
-          <p class="mt-2 text-slate-300">Сложные темы через понятные аналоги, визуализации и разборы в реальном времени.</p>
-        </div>
-        <div class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <p class="fact-value text-4xl font-extrabold text-white">Связь между занятиями</p>
-          <p class="mt-2 text-slate-300">Оперативная обратная связь по домашке и вопросам между занятиями.</p>
-        </div>
+      </article>
+      <div class="review-voices">
+        <article class="review-voice reveal" aria-labelledby="review-natalya">
+          <h3 id="review-natalya" class="review-author">Наталья<span class="review-role">, родитель</span></h3>
+          <blockquote><p class="review-text">С учетом того, что ребенок не был замотивирован на учебу, Илья Сергеевич сумел заинтересовать ученика и подготовить его к успешной сдаче ОГЭ по информатике. Специалиста рекомендую однозначно!</p></blockquote>
+        </article>
+        <article class="review-voice reveal" aria-labelledby="review-eduard">
+          <h3 id="review-eduard" class="review-author">Эдуард<span class="review-role">, ученик</span></h3>
+          <blockquote><p class="review-text">Спасибо большое Илье Сергеевичу, научил понимать логику решения, а не тупо решать по шаблонам.</p></blockquote>
+        </article>
+        <article class="review-voice reveal" aria-labelledby="review-maria">
+          <h3 id="review-maria" class="review-author">Мария<span class="review-role">, родитель</span></h3>
+          <blockquote><p class="review-text">Илья Сергеевич очень понравился. Доступно объясняет материал, сразу нашел контакт с ребенком.</p></blockquote>
+        </article>
+        <article class="review-voice reveal" aria-labelledby="review-alina">
+          <h3 id="review-alina" class="review-author">Алина<span class="review-role">, ученица</span></h3>
+          <blockquote><p class="review-text">Все супер, подтянул знания, заполнил пробелы. Спасибо большое ему.</p></blockquote>
+        </article>
       </div>
     </section>
 
-    <section id="reviews" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">Отзывы</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <h3 class="font-semibold text-white">Наталья, родитель</h3>
-          <p class="mt-2 text-slate-300">С учетом того, что ребенок не был замотивирован на учебу, Илья Сергеевич сумел заинтересовать ученика и подготовить его к успешной сдаче ОГЭ по информатике. Специалиста рекомендую однозначно!</p>
-        </article>
-        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <h3 class="font-semibold text-white">Саджат, ученик</h3>
-          <p class="mt-2 text-slate-300">Прекрасный репетитор! Занимались лишь 2 месяца, подняли бал с 51 до 88. Очень доволен результатом, человек знает своё дело, очень доходчиво и четко объяснил каждое задание. Очень приятен в общении. В общем 10/10</p>
-        </article>
-        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <h3 class="font-semibold text-white">Эдуард, ученик</h3>
-          <p class="mt-2 text-slate-300">Спасибо большое Илье Сергеевичу, научил понимать логику решения, а не тупо решать по шаблонам.</p>
-        </article>
-        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10">
-          <h3 class="font-semibold text-white">Мария, родитель</h3>
-          <p class="mt-2 text-slate-300">Илья Сергеевич очень понравился. Доступно объясняет материал, сразу нашел контакт с ребенком.</p>
-        </article>
-        <article class="surface-card p-6 rounded-2xl bg-card/60 ring-1 ring-white/10 md:col-span-2">
-          <h3 class="font-semibold text-white">Алина, ученица</h3>
-          <p class="mt-2 text-slate-300">Все супер, подтянул знания, заполнил пробелы. Спасибо большое ему.</p>
-        </article>
+    <section id="faq" class="faq-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="faq-title">
+      <h2 id="faq-title">Частые вопросы</h2>
+      <p class="faq-subtitle">Всё, что важно знать перед началом занятий</p>
+      <div class="faq-list">
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">01</span>
+            <span class="faq-question-text">Где и как проходят онлайн-занятия?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Занятия проходят в ВК Звонках или Яндекс Телемосте. Для объяснения материала я использую графический планшет, интерактивную доску и демонстрацию экрана — это позволяет наглядно разбирать задачи и решения.</p>
+            <p>При изучении программирования использую среду разработки PyCharm.</p>
+          </div>
+        </details>
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">02</span>
+            <span class="faq-question-text">Как строится подготовка к ЕГЭ и ОГЭ?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>План подготовки составляю с учётом начального уровня знаний, целей и темпа ученика. Разбираем необходимые темы, решаем экзаменационные задачи, постепенно переходим к самостоятельной практике и уделяем внимание работе над ошибками.</p>
+          </div>
+        </details>
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">03</span>
+            <span class="faq-question-text">Чем отличаются индивидуальные и групповые занятия?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>На индивидуальных занятиях работаем в персональном темпе, уделяя особое внимание сложным для ученика темам. Продолжительность — 60 минут.</p>
+            <p>Групповые занятия проходят в небольших группах до 5 человек и длятся 90 минут. Вместе разбираем задания и закрепляем материал на практике.</p>
+          </div>
+        </details>
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">04</span>
+            <span class="faq-question-text">Как проходит первое занятие?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>На первом занятии обсуждаем цели обучения и составляем предварительный план подготовки.</p>
+            <p>Обычно я предлагаю несколько разноплановых задач, чтобы определить текущий уровень знаний и выявить темы, требующие дополнительной проработки.</p>
+            <p>Если у ученика уже есть конкретные вопросы или сложности, можем сразу приступить к изучению материала без продолжительной диагностики.</p>
+            <p>Первое занятие оплачивается по обычному тарифу.</p>
+          </div>
+        </details>
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">05</span>
+            <span class="faq-question-text">Как проверяются домашние задания и разбираются ошибки?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Я проверяю домашние задания и анализирую допущенные ошибки. Когда накапливается достаточно материала, мы выделяем отдельное занятие для подробного разбора сложных задач и повторного решения.</p>
+            <p>Такой подход помогает разобраться в причинах ошибок и закрепить необходимые знания.</p>
+          </div>
+        </details>
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">06</span>
+            <span class="faq-question-text">С какими учениками я работаю?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Работаю со школьниками 1–11 классов, студентами и взрослыми.</p>
+            <p>Помогаю с математикой, информатикой, подготовкой к экзаменам и изучением Python. Содержание занятий подбираю с учётом исходных знаний и целей ученика.</p>
+          </div>
+        </details>
+        <details class="faq-question">
+          <summary>
+            <span class="faq-number" aria-hidden="true">07</span>
+            <span class="faq-question-text">Сколько стоят занятия и есть ли абонементы?</span>
+            <svg class="faq-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-plus-vertical" d="M12 5v14"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Индивидуальные занятия стоят от 2&nbsp;000&nbsp;₽ за 60 минут, групповые — 900&nbsp;₽ за ученика за 90 минут.</p>
+            <p>Для индивидуальных абонементов действуют скидки: 5% на 4 занятия и 7,5% на 8 занятий. Групповые абонементы предоставляются без скидок.</p>
+            <p><a href="#pricing">Подробные цены указаны в разделе «Стоимость занятий».</a></p>
+          </div>
+        </details>
       </div>
-    </section>
-
-    <section id="faq" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">FAQ</h2>
-      <div class="faq-panel mt-6 divide-y divide-white/10 rounded-2xl ring-1 ring-white/10 bg-card/60">
-        <details class="group p-6 open:bg-card/80">
-          <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
-            Сколько стоит первое занятие и есть ли скидки?
-            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
-          </summary>
-          <p class="mt-3 text-slate-300">Первое занятие платное, по обычному тарифу: индивидуальное — от 2&nbsp;000&nbsp;₽ за 60 минут, групповое — 900&nbsp;₽ за ученика за 90 минут. В группе до 5 человек.</p>
-          <p class="mt-3 text-slate-300">Для индивидуальных абонементов на 4 занятия действует скидка 5% — от 7&nbsp;600&nbsp;₽, на 8 занятий — 7,5% — от 14&nbsp;800&nbsp;₽. Минимальные суммы рассчитаны от базовой стоимости 2&nbsp;000&nbsp;₽ за занятие. Групповые абонементы — без скидок: 4 занятия — 3&nbsp;600&nbsp;₽, 8 занятий — 7&nbsp;200&nbsp;₽ за ученика.</p>
-        </details>
-        <details class="group p-6">
-          <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
-            Сколько длится обычное занятие?
-            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
-          </summary>
-          <p class="mt-3 text-slate-300">Индивидуальное занятие длится 60 минут, групповое — 90 минут.</p>
-        </details>
-        <details class="group p-6">
-          <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
-            Домашние задания обязательны?
-            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
-          </summary>
-          <p class="mt-3 text-slate-300">Нет, но домашка помогает закрепить тему и быстро расти. Я даю понятные инструкции и проверяю прогресс.</p>
-        </details>
-        <details class="group p-6">
-          <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
-            Оплата и договорённости?
-            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
-          </summary>
-          <p class="mt-3 text-slate-300">Первое занятие оплачивается по обычному тарифу выбранного формата. Стоимость занятий и абонементов указана в разделе «Стоимость занятий». Чеки и закрывающие документы по запросу. Все детали обсуждаем удобным для вас способом.</p>
-        </details>
-        <details class="group p-6">
-          <summary class="list-none flex cursor-pointer items-center justify-between text-left font-semibold text-white">
-            С какими классами и уровнями работаю?
-            <span class="ml-6 transition group-open:rotate-45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
-          </summary>
-          <p class="mt-3 text-slate-300">1–11 классы, а также студенты и взрослые.</p>
-        </details>
-      </div>
-      <div class="mt-8 text-center">
-        <a href="#contacts" class="button button-primary">Выбрать способ связи</a>
-      </div>
+      <div class="faq-action"><a href="#contacts" class="button button-primary">Выбрать способ связи</a></div>
     </section>
 
     <!-- CONTACTS -->
@@ -602,18 +767,78 @@
     </section>
 
 
-    <section class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="closing-panel rounded-3xl bg-gradient-to-r from-card/80 to-card/60 p-8 ring-1 ring-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="text-white text-xl font-bold">Готовы начать?</h3>
-          <p class="text-slate-300 mt-1">Свяжитесь удобным способом — подберу время и отправлю план первого занятия.</p>
-        </div>
-        <a href="#contacts" class="button button-primary">Обсудить занятия</a>
-      </div>
-      <p class="site-footer text-center text-xs text-slate-500 mt-6">© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
-    </section>
   </main>
+  <footer class="site-footer max-w-7xl">
+    <p>© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
+  </footer>
 
+  <script id="lesson-stage-script">
+    (() => {
+      const block = document.querySelector('.lesson-block');
+      const controls = block.querySelector('.lesson-controls');
+      const tabs = [...controls.querySelectorAll('button')];
+      const panels = [...block.querySelectorAll('.lesson-panel')];
+      const nodes = [...block.querySelectorAll('.lesson-node')];
+      const stageLabel = block.querySelector('.lesson-stage-label');
+      const vertical = window.matchMedia('(min-width:1024px)');
+      const reduced = window.matchMedia('(prefers-reduced-motion:reduce)');
+      let active = -1;
+      let animation;
+
+      function selectStage(index, focus = false, animate = true) {
+        const changed = index !== active;
+        if (animation) animation.cancel();
+        tabs.forEach((tab, i) => {
+          tab.setAttribute('aria-selected', String(i === index));
+          tab.tabIndex = i === index ? 0 : -1;
+          panels[i].setAttribute('aria-hidden', String(i !== index));
+          panels[i].inert = i !== index;
+          panels[i].tabIndex = i === index ? 0 : -1;
+          nodes[i].classList.toggle('is-active', i === index);
+        });
+        active = index;
+        stageLabel.textContent = `Этап ${index + 1} из ${tabs.length}`;
+        if (focus) tabs[index].focus();
+        if (changed && animate && !reduced.matches && panels[index].animate) {
+          animation = panels[index].animate([
+            { opacity:.75, transform:'translateY(6px)' },
+            { opacity:1, transform:'translateY(0)' }
+          ], { duration:180, easing:'ease-out' });
+        }
+      }
+
+      function updateOrientation() {
+        controls.setAttribute('aria-orientation', vertical.matches ? 'vertical' : 'horizontal');
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectStage(index));
+        tab.addEventListener('keydown', (event) => {
+          let next;
+          if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          else if (event.key === (vertical.matches ? 'ArrowDown' : 'ArrowRight')) next = (index + 1) % tabs.length;
+          else if (event.key === (vertical.matches ? 'ArrowUp' : 'ArrowLeft')) next = (index + tabs.length - 1) % tabs.length;
+          if (next === undefined) return;
+          event.preventDefault();
+          selectStage(next, true);
+        });
+      });
+      vertical.addEventListener('change', updateOrientation);
+      reduced.addEventListener('change', () => { if (reduced.matches && animation) animation.cancel(); });
+      // All content stays visible until enhancement is fully initialized.
+      controls.setAttribute('role', 'tablist');
+      tabs.forEach((tab, i) => {
+        tab.setAttribute('role', 'tab');
+        panels[i].setAttribute('role', 'tabpanel');
+        panels[i].setAttribute('aria-labelledby', tab.id);
+      });
+      updateOrientation();
+      selectStage(0, false, false);
+      block.classList.add('is-enhanced');
+      controls.hidden = false;
+    })();
+  </script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
@@ -675,7 +900,7 @@
       });
       window.addEventListener('resize', updateHeaderHeight);
       if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
-      // Enhance only after the event handlers are installed; otherwise links remain visible.
+      // CSS already establishes the header geometry; readiness only marks installed handlers.
       setExpanded(false);
       header.classList.add('nav-ready');
       updateHeaderHeight();
