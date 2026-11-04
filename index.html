@@ -76,14 +76,13 @@
     .navigation-links a { display:flex; align-items:center; min-height:44px; padding:var(--space-2); border-radius:var(--radius-small); color:var(--color-body); font-size:var(--font-small); text-decoration:none; transition:color var(--duration), background var(--duration); }
     .navigation-links a:hover { background:rgba(255,255,255,.035); color:var(--color-text); }
     @media (max-width:1279px) {
-      /* Navigation stays visible in document flow until JS is successfully initialized. */
-      .site-header { position:relative; }
-      .site-header.nav-ready { position:sticky; }
-      .nav-ready .menu-toggle { display:inline-flex; }
-      .nav-ready .site-navigation { position:absolute; top:100%; left:0; right:0; display:grid; grid-template-rows:0fr; visibility:hidden; background:var(--color-surface); border-bottom:1px solid var(--color-border); box-shadow:var(--shadow-card); transition:grid-template-rows .22s ease, visibility 0s .22s; }
-      .nav-ready .site-navigation.is-open { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .22s ease, visibility 0s; }
-      .nav-ready .navigation-clip { min-height:0; overflow:hidden; }
-      .nav-ready .navigation-links { padding:var(--space-3) var(--space-4); max-height:calc(100dvh - var(--header-height, 6rem) - 12px); overflow-y:auto; }
+      /* Establish the compact header before JS; no-JS links are restored below. */
+      .site-header { position:sticky; }
+      .menu-toggle { display:inline-flex; }
+      .site-navigation { position:absolute; top:100%; left:0; right:0; display:grid; grid-template-rows:0fr; visibility:hidden; background:var(--color-surface); border-bottom:1px solid var(--color-border); box-shadow:var(--shadow-card); transition:grid-template-rows .22s ease, visibility 0s .22s; }
+      .site-navigation.is-open { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .22s ease, visibility 0s; }
+      .navigation-clip { min-height:0; overflow:hidden; }
+      .navigation-links { padding:var(--space-3) var(--space-4); max-height:calc(100dvh - var(--header-height, 6rem) - 12px); overflow-y:auto; }
     }
     @media (min-width:640px) { .header-brand { font-size:var(--font-body); } }
     @media (min-width:1280px) {
@@ -394,6 +393,17 @@
   </style>
   <!-- Preserve the cascade order used by the former Tailwind Play CDN. -->
   <link rel="stylesheet" href="./css/styles.css">
+  <noscript>
+    <style>
+      @media (max-width:1279px) {
+        .site-header { position:relative; }
+        .menu-toggle { display:none; }
+        .site-navigation { position:static; display:block; visibility:visible; background:transparent; border:0; box-shadow:none; }
+        .navigation-clip { overflow:visible; }
+        .navigation-links { padding:0; max-height:none; overflow:visible; }
+      }
+    </style>
+  </noscript>
 </head>
 <body class="text-slate-200 antialiased selection:bg-accent/20">
   <header class="site-header sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-bg/70 bg-bg/80 border-b border-white/5">
@@ -890,7 +900,7 @@
       });
       window.addEventListener('resize', updateHeaderHeight);
       if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
-      // Enhance only after the event handlers are installed; otherwise links remain visible.
+      // CSS already establishes the header geometry; readiness only marks installed handlers.
       setExpanded(false);
       header.classList.add('nav-ready');
       updateHeaderHeight();
