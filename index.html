@@ -30,9 +30,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
   <link rel="manifest" href="./favicons/site.webmanifest">
+  <link rel="stylesheet" href="./css/analytics-consent.css">
+  <script src="./js/analytics-consent.js" defer></script>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="./fonts/Inter/inter-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/Inter/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/Inter/inter-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./css/fonts.css">
   <style>
     :root {
       color-scheme:dark;
@@ -770,7 +774,17 @@
   </main>
   <footer class="site-footer max-w-7xl">
     <p>© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
+    <div class="privacy-links"><a href="./privacy.html">Обработка персональных данных</a><button type="button" data-analytics-settings hidden>Настройки статистики</button></div>
   </footer>
+  <section class="analytics-notice" id="analytics-notice" aria-labelledby="analytics-title" hidden>
+    <div class="analytics-copy">
+      <h2 id="analytics-title">Статистика сайта</h2>
+      <p>Мы используем Яндекс.Метрику, чтобы понимать, как посетители пользуются сайтом. Аналитика включается только с вашего разрешения. Отказ не влияет на работу сайта.</p>
+      <a class="analytics-details" href="./consent.html">Подробнее о данных</a>
+      <p class="analytics-status" id="analytics-status" aria-live="polite"></p>
+    </div>
+    <div class="analytics-actions"><button type="button" class="button button-secondary" data-analytics-choice="accepted">Разрешить</button><button type="button" class="button button-secondary" data-analytics-choice="denied">Отклонить</button><button type="button" class="analytics-dismiss" id="analytics-dismiss" hidden>Закрыть настройки</button></div>
+  </section>
 
   <script id="lesson-stage-script">
     (() => {
