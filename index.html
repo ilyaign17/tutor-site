@@ -291,59 +291,6 @@
       .pricing-package-format:first-child { padding-right:var(--space-5); }
     }
     @media (max-width:479px) { .pricing-action .button { width:100%; } }
-    @media (hover:hover) { .pricing-format:hover { border-color:var(--color-border-hover); background:rgba(20,30,47,.8); } }
-
-    .lesson-section .lesson-subtitle { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-lead); }
-    .lesson-block { margin-top:var(--space-6); padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.75); }
-    .lesson-layout { display:grid; gap:var(--space-5); }
-    .lesson-block:not(.is-enhanced) .lesson-layout { grid-template-columns:minmax(0, 1fr); }
-    .lesson-controls { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--space-2); }
-    .lesson-controls[hidden] { display:none; }
-    .lesson-tab { display:flex; align-items:center; justify-content:center; gap:var(--space-3); min-width:0; min-height:48px; padding:var(--space-3) var(--space-2); border:1px solid transparent; border-radius:var(--radius-button); background:transparent; color:var(--color-muted); font:inherit; font-size:var(--font-small); font-weight:500; cursor:pointer; transition:background var(--duration), border-color var(--duration), color var(--duration); }
-    .lesson-tab[aria-selected="true"] { border-color:var(--color-border-hover); background:rgba(139,223,197,.06); color:var(--color-accent); }
-    .lesson-tab-index { display:none; color:var(--color-muted); font-size:var(--font-small); }
-    .lesson-body { min-width:0; }
-    .lesson-panels { display:grid; gap:var(--space-5); }
-    .lesson-panel { min-width:0; }
-    .lesson-panel:focus-visible { outline:2px solid var(--color-accent); outline-offset:6px; border-radius:var(--radius-small); }
-    .lesson-panel + .lesson-panel { padding-top:var(--space-5); border-top:1px solid var(--color-border); }
-    .lesson-section .lesson-panel h3 { margin:0; }
-    .lesson-section .lesson-panel p { max-width:60ch; margin:var(--space-4) 0 0; font-size:var(--font-body); }
-    /* Invisible panels still size the grid, preventing jumps when the selected stage changes. */
-    .is-enhanced .lesson-panels { gap:0; }
-    .is-enhanced .lesson-panel { grid-area:1 / 1; align-self:start; padding:0; border:0; }
-    .is-enhanced .lesson-panel[aria-hidden="true"] { visibility:hidden; pointer-events:none; }
-    .lesson-scheme { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); margin:var(--space-5) 0 0; padding:var(--space-5) 0 0; border-top:1px solid var(--color-border); list-style:none; }
-    .lesson-node { position:relative; display:flex; flex-direction:column; align-items:center; gap:var(--space-2); min-width:0; color:var(--color-muted); font-size:var(--font-small); line-height:1.5; transition:color var(--duration); }
-    .lesson-node:not(:last-child)::after { content:''; position:absolute; top:18px; left:calc(50% + 24px); width:calc(100% - 48px); height:1px; background:var(--color-border); }
-    .lesson-node-icon { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--color-border); border-radius:50%; transition:border-color var(--duration), background var(--duration); }
-    .lesson-node svg { width:18px; height:18px; }
-    .lesson-node.is-active { color:var(--color-accent); }
-    .lesson-node.is-active .lesson-node-icon { border-color:var(--color-accent); background:rgba(139,223,197,.06); }
-    .lesson-node:nth-child(2).is-active { color:var(--color-blue); }
-    .lesson-node:nth-child(2).is-active .lesson-node-icon { border-color:var(--color-blue); background:rgba(140,188,232,.06); }
-    .lesson-section .lesson-stage-label { display:none; margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-small); line-height:1.5; }
-    @media (max-width:640px) {
-      .lesson-scheme { gap:var(--space-2); padding:0; border-top:0; }
-      .lesson-scheme .lesson-node { display:block; height:3px; border-radius:2px; background:var(--color-border); transition:background-color var(--duration); }
-      .lesson-scheme .lesson-node.is-active { background:var(--color-accent); }
-      .lesson-scheme .lesson-node > span, .lesson-scheme .lesson-node::after { display:none; }
-      .is-enhanced .lesson-stage-label { display:block; }
-    }
-    .lesson-action { margin-top:var(--space-5); }
-    @media (max-width:479px) {
-      .lesson-block { padding:var(--space-4); }
-      .lesson-controls { gap:var(--space-1); }
-      .lesson-action .button { width:100%; }
-    }
-    @media (min-width:768px) { .lesson-block { padding:var(--space-6); } }
-    @media (min-width:1024px) {
-      .lesson-layout { grid-template-columns:220px minmax(0, 1fr); gap:var(--space-7); }
-      .lesson-controls { grid-template-columns:minmax(0, 1fr); align-content:start; gap:var(--space-3); padding-right:var(--space-5); border-right:1px solid var(--color-border); }
-      .lesson-tab { justify-content:flex-start; padding-inline:var(--space-4); font-size:var(--font-body); }
-      .lesson-tab-index { display:inline; }
-    }
-    @media (hover:hover) { .lesson-tab:hover { color:var(--color-text); background:rgba(255,255,255,.035); } }
 
     .reviews-section .reviews-subtitle { margin:var(--space-3) 0 0; color:var(--color-muted); font-size:var(--font-lead); }
     .review-feature { display:grid; grid-template-columns:minmax(0, 1fr); gap:var(--space-5); margin-top:var(--space-6); padding:var(--space-5); border:1px solid var(--color-border); border-radius:var(--radius-large); background:rgba(16,24,39,.65); }
@@ -397,10 +344,13 @@
   </style>
   <!-- Preserve the cascade order used by the former Tailwind Play CDN. -->
   <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/redesign.css">
+  <script src="./js/redesign.js" defer></script>
   <noscript>
     <style>
       @media (max-width:1279px) {
         .site-header { position:relative; }
+        .navigation-shell { position:static; display:block; grid-column:1 / -1; width:auto; padding:0; visibility:visible; opacity:1; transform:none; border:0; background:none; box-shadow:none; }
         .menu-toggle { display:none; }
         .site-navigation { position:static; display:block; visibility:visible; background:transparent; border:0; box-shadow:none; }
         .navigation-clip { overflow:visible; }
@@ -416,24 +366,29 @@
         ИЛЬЯ ИГНАТЕНКОВ<span class="text-accent"> • репетитор</span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Открыть меню">
-        <span class="menu-icon" aria-hidden="true"></span>Меню
+        <span class="menu-icon" aria-hidden="true"></span><span class="menu-toggle-label">Меню</span>
       </button>
+      <div class="navigation-shell">
       <nav id="site-navigation" class="site-navigation text-sm text-slate-300" aria-label="Основная навигация">
         <div class="navigation-clip"><div class="navigation-links">
         <a href="#about" class="hover:text-white">Обо мне</a>
         <a href="#services" class="hover:text-white">Направления</a>
         <a href="#pricing" class="hover:text-white">Цены</a>
-        <a href="#facts" class="hover:text-white">Как проходят занятия</a>
+        <a href="#facts" class="hover:text-white">Методика</a>
         <a href="#reviews" class="hover:text-white">Отзывы</a>
-        <a href="#faq" class="hover:text-white">FAQ</a>
         <a href="#contacts" class="hover:text-white">Контакты</a>
+        <a href="#faq" class="hover:text-white">FAQ</a>
+        <a href="#contacts" class="menu-cta">Записаться <span aria-hidden="true">↗</span></a><p class="menu-channels">Telegram · MAX · почта</p>
         </div></div>
       </nav>
+      </div>
       <a href="#contacts" class="header-cta button button-primary">
         Записаться
       </a>
     </div>
   </header>
+
+  <div class="menu-backdrop" hidden aria-hidden="true"></div>
 
   <main id="top" class="relative">
     <section class="hero" aria-labelledby="hero-title">
@@ -441,26 +396,23 @@
         <div class="hero-copy">
           <p class="hero-eyebrow">Онлайн · Индивидуально и в группе</p>
           <h1 id="hero-title" class="hero-title">
-            Подготовка к
+            <span class="hero-title-intro">Подготовка к</span>
             <span class="hero-title-accent">ЕГЭ и ОГЭ</span>
             <span class="hero-title-subjects">по математике и информатике</span>
           </h1>
           <p class="hero-description">
             Объясняю сложные темы простым языком. Выстраиваем план подготовки, разбираем задачи и закрепляем знания на практике.
           </p>
-          <div class="hero-actions">
-            <a href="#contacts" class="hero-primary button button-primary">
-              Обсудить занятия
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a href="#pricing" class="hero-secondary button button-secondary">Посмотреть цены</a>
+          <div class="hero-cta">
+            <div class="hero-actions">
+              <a href="#contacts" class="hero-primary button button-primary">
+                Обсудить занятия
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="#pricing" class="hero-secondary button button-secondary">Посмотреть цены</a>
+            </div>
+            <p class="hero-note">Telegram, MAX или почта — выбирайте удобный способ связи.</p>
           </div>
-          <p class="hero-note">Telegram, MAX или почта — выбирайте удобный способ связи.</p>
-          <ul class="hero-topics" aria-label="Другие направления занятий">
-            <li>Школьная программа</li>
-            <li>Олимпиады</li>
-            <li>Python</li>
-          </ul>
         </div>
         <figure class="hero-portrait">
           <picture style="display:block">
@@ -474,71 +426,56 @@
       </div>
     </section>
 
-    <section id="about" class="about-section content-section reveal max-w-7xl mx-auto" aria-labelledby="about-title">
-      <div class="about-layout">
-        <div class="about-intro">
-          <h2 id="about-title">Обо мне</h2>
-          <p class="about-name">Илья Игнатенков</p>
-          <p class="about-experience"><strong>8+</strong> <span>лет преподавания</span></p>
-        </div>
-        <div class="about-story">
-          <p class="about-lead">Помогаю понимать материал, а не заучивать решения.</p>
-          <p>Преподаю математику, информатику и Python. Сложные темы объясняю простым языком.</p>
-          <p>План подготовки строю с учётом начального уровня, целей и темпа ученика.</p>
-        </div>
-        <dl class="about-detail about-education">
-          <dt>Образование</dt>
-          <dd><span class="about-university">Ярославский государственный университет имени П. Г. Демидова.</span><span class="about-degree">Направление „Фундаментальная информатика и информационные технологии“.</span></dd>
-        </dl>
-        <dl class="about-detail about-practice">
-          <dt>Практика · Python</dt>
-          <dd>Практический опыт программирования на Python помогает связывать учебные темы с реальными задачами.</dd>
-        </dl>
+    <section id="about" class="about-section content-section max-w-7xl mx-auto" aria-labelledby="about-title">
+      <span class="section-kicker">Личное знакомство / 01</span>
+      <h2 id="about-title">Обо мне</h2>
+      <div class="about-bento">
+        <article class="bento-cell bento-story"><span class="bento-label">Илья Игнатенков</span><p class="about-lead">Не учу запоминать решения. Учу <strong class="text-emphasis">понимать</strong>, как они работают.</p><p>Мне важно, чтобы ученик мог <strong class="text-emphasis">самостоятельно разобраться</strong> в новой задаче, даже если условие изменилось. Поэтому мы учимся рассуждать, искать закономерности и понимать свои ошибки.</p></article>
+        <div class="bento-metrics"><div class="bento-cell bento-experience"><strong>8+</strong><p>лет преподавания</p></div><div class="bento-cell bento-experience bento-exams"><strong>150+</strong><p>успешно сданных экзаменов моими учениками</p></div></div>
+        <article class="bento-cell bento-education"><div class="bento-education-label"><span class="bento-label">Образование</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5zm4 2v6c3 3 9 3 12 0v-6m4-2v7"/></svg></div><h3><strong class="text-emphasis">ЯрГУ</strong> им. П. Г. Демидова</h3><p class="degree-levels">Бакалавриат и магистратура</p><p>«Фундаментальная информатика и информационные технологии».</p></article>
+        <article class="bento-cell bento-approach"><span class="bento-label">Индивидуальный подход</span><h3>У каждого ученика — <strong class="text-emphasis">свой путь к результату</strong>.</h3><p>Учитываю начальный уровень, цели и темп обучения. <strong class="text-emphasis">План подготовки</strong> корректируем по мере продвижения.</p><ol class="preparation-path"><li class="path-step"><strong>Диагностика</strong></li><li class="path-step"><strong>План</strong></li><li class="path-step"><strong>Прогресс</strong></li></ol></article>
       </div>
     </section>
 
     <section id="services" class="services-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="services-title">
+      <span class="section-kicker">Выберите своё направление / 02</span>
       <h2 id="services-title">Направления занятий</h2>
       <p class="services-subtitle">От подготовки к экзаменам до первых проектов на Python</p>
-      <div class="services-exams" role="group" aria-labelledby="services-exams-title">
-        <h3 id="services-exams-title" class="services-group-title">Подготовка к экзаменам</h3>
-        <div class="services-exam-grid">
-          <article class="service-item">
+      <div class="services-grid">
+<article class="service-item">
             <div class="service-heading">
-              <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 7-5 5 5 5m10-10 5 5-5 5M14 4l-4 16"/></svg>
-              <h4>ЕГЭ и ОГЭ по информатике</h4>
+              <span class="service-icon-tile"><svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 7-5 5 5 5m10-10 5 5-5 5M14 4l-4 16"/></svg></span>
+              <h3>ЕГЭ и ОГЭ по <strong>информатике</strong></h3>
             </div>
-            <p>Разбираем задания экзамена, алгоритмы и программирование. Закрепляем теорию на практике и учимся находить ошибки в решениях.</p>
-          </article>
-          <article class="service-item">
+            <p>Разбираем задания экзамена, <strong>алгоритмы и программирование</strong>. Закрепляем теорию на практике и учимся находить ошибки в решениях.</p>
+          <div class="service-tags"><span>Алгоритмы</span><span>Код</span><span>Экзамен</span></div></article>
+<article class="service-item">
             <div class="service-heading">
-              <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 4H5l8 8-8 8h14M19 4v3m0 10v3"/></svg>
-              <h4>ЕГЭ и ОГЭ по математике</h4>
+              <span class="service-icon-tile"><svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 4H5l8 8-8 8h14M19 4v3m0 10v3"/></svg></span>
+              <h3>ЕГЭ и ОГЭ по <strong>математике</strong></h3>
             </div>
-            <p>Систематизируем знания и разбираем экзаменационные задачи. Учимся понимать логику решения и обосновывать каждый шаг.</p>
-          </article>
-        </div>
-      </div>
-      <div class="services-development">
-        <article class="service-item">
+            <p>Систематизируем знания и разбираем экзаменационные задачи. Учимся понимать <strong>логику решения</strong> и обосновывать каждый шаг.</p>
+          <div class="service-tags"><span>Логика</span><span>Задачи</span><span>Экзамен</span></div></article>
+<article class="service-item">
           <div class="service-heading">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6c-3-2-6-2-10-1v14c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1Zm0 0v14"/></svg>
-            <h3>Школьная программа и повышение успеваемости</h3>
+            <span class="service-icon-tile"><svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6c-3-2-6-2-10-1v14c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1Zm0 0v14"/></svg></span>
+            <h3>Школьная <strong>программа</strong> и повышение <strong>успеваемости</strong></h3>
           </div>
-          <p>Помогаю разобраться в текущих темах, восполнить пробелы и подготовиться к контрольным работам.</p>
-        </article>
-        <article class="service-item">
+          <p>Помогаю разобраться в текущих темах, <strong>восполнить пробелы</strong> и подготовиться к контрольным работам.</p>
+        <div class="service-tags"><span>Понимание</span><span>Практика</span><span>Школа</span></div></article>
+<article class="service-item">
           <div class="service-heading">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3m7 0h5"/></svg>
-            <h3>Программирование на Python</h3>
+            <span class="service-icon-tile"><svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3m7 0h5"/></svg></span>
+            <h3>Программирование на <strong>Python</strong></h3>
           </div>
-          <p>Изучаем основы языка, алгоритмы и создаём небольшие проекты. Учимся писать понятный код и применять знания на практике.</p>
-        </article>
+          <p>Изучаем основы языка, алгоритмы и создаём <strong>первые собственные проекты</strong>. Учимся писать понятный код и применять знания на практике.</p>
+        <div class="service-tags"><span>Основы языка</span><span>Алгоритмы</span><span>Проекты</span></div></article>
       </div>
       <div class="services-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
     </section>
 
     <section id="pricing" class="pricing-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="pricing-title">
+      <span class="section-kicker">Форматы и стоимость / 03</span>
       <h2 id="pricing-title">Стоимость занятий</h2>
       <p class="pricing-subtitle">Два формата — один подход</p>
       <div class="pricing-formats">
@@ -562,102 +499,84 @@
         </article>
       </div>
       <div class="pricing-packages" role="group" aria-labelledby="pricing-packages-title">
-        <h3 id="pricing-packages-title">Абонементы</h3>
+        <div class="package-heading"><div><h3 id="pricing-packages-title">Абонементы</h3><p>Выберите количество занятий</p></div><div class="package-picker" role="group" aria-label="Количество занятий в абонементе" hidden><button type="button" data-count="4" aria-pressed="true">4 занятия</button><button type="button" data-count="8" aria-pressed="false">8 занятий</button></div></div><p class="package-status sr-only" role="status" aria-live="polite"></p>
         <div class="pricing-package-grid">
           <div class="pricing-package-format">
-            <h4>Индивидуальные</h4>
+            <h4>Индивидуально</h4>
             <p class="pricing-package-note">60 минут за занятие</p>
             <dl class="pricing-package-values">
-              <div><dt>4 занятия</dt><dd><strong>от 7&nbsp;600&nbsp;₽</strong><span>скидка 5%</span></dd></div>
-              <div><dt>8 занятий</dt><dd><strong>от 14&nbsp;800&nbsp;₽</strong><span>скидка 7,5%</span></dd></div>
+              <div data-package-count="4"><dt>4 занятия</dt><dd><strong>от 7&nbsp;600&nbsp;₽</strong><span class="per-lesson">от 1&nbsp;900&nbsp;₽ за занятие</span><span class="saving"><b>Скидка 5%</b><span>экономия от 400&nbsp;₽</span></span></dd></div>
+              <div data-package-count="8"><dt>8 занятий</dt><dd><strong>от 14&nbsp;800&nbsp;₽</strong><span class="per-lesson">от 1&nbsp;850&nbsp;₽ за занятие</span><span class="saving"><b>Скидка 7,5%</b><span>экономия от 1&nbsp;200&nbsp;₽</span></span></dd></div>
             </dl>
           </div>
           <div class="pricing-package-format">
-            <h4>Групповые</h4>
-            <p class="pricing-package-note">90 минут за занятие · без скидок</p>
+            <h4>В группе</h4>
+            <p class="pricing-package-note">90 минут за занятие</p>
             <dl class="pricing-package-values">
-              <div><dt>4 занятия</dt><dd><strong>3&nbsp;600&nbsp;₽</strong><span>за ученика</span></dd></div>
-              <div><dt>8 занятий</dt><dd><strong>7&nbsp;200&nbsp;₽</strong><span>за ученика</span></dd></div>
+              <div data-package-count="4"><dt>4 занятия</dt><dd><strong>3&nbsp;600&nbsp;₽</strong><span class="package-unit">за ученика</span><span class="per-lesson">900&nbsp;₽ за занятие</span><span class="package-group-size">До 5 человек в группе</span></dd></div>
+              <div data-package-count="8"><dt>8 занятий</dt><dd><strong>7&nbsp;200&nbsp;₽</strong><span class="package-unit">за ученика</span><span class="per-lesson">900&nbsp;₽ за занятие</span><span class="package-group-size">До 5 человек в группе</span></dd></div>
             </dl>
           </div>
         </div>
-        <p class="pricing-calculation">Минимальная стоимость индивидуальных абонементов рассчитана от 2&nbsp;000&nbsp;₽ за занятие.</p>
+        <p class="pricing-calculation"><span>Минимальная стоимость индивидуальных абонементов рассчитана от 2&nbsp;000&nbsp;₽ за занятие.</span></p>
       </div>
       <p class="pricing-first"><strong>Первое занятие</strong> оплачивается по обычному тарифу выбранного формата.</p>
       <div class="pricing-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
     </section>
 
-    <section id="facts" class="lesson-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="lesson-title">
+    <section id="facts" class="lesson-section content-section max-w-7xl mx-auto" aria-labelledby="lesson-title">
+      <span class="section-kicker">От понимания к практике / 04</span>
       <h2 id="lesson-title">Как проходят занятия</h2>
       <p class="lesson-subtitle">Важно не просто получить ответ, а понять, как к нему прийти</p>
-      <div class="lesson-block">
-        <div class="lesson-layout">
-          <div class="lesson-controls" aria-label="Этапы занятия" hidden>
-            <button id="lesson-tab-understand" class="lesson-tab" type="button" aria-controls="lesson-panel-understand"><span class="lesson-tab-index" aria-hidden="true">01</span>Понять</button>
-            <button id="lesson-tab-solve" class="lesson-tab" type="button" aria-controls="lesson-panel-solve"><span class="lesson-tab-index" aria-hidden="true">02</span>Решить</button>
-            <button id="lesson-tab-check" class="lesson-tab" type="button" aria-controls="lesson-panel-check"><span class="lesson-tab-index" aria-hidden="true">03</span>Проверить</button>
-          </div>
-          <div class="lesson-body">
-            <div class="lesson-panels">
-              <article id="lesson-panel-understand" class="lesson-panel" aria-labelledby="lesson-understand-title">
-                <h3 id="lesson-understand-title">Разбираемся в задаче</h3>
-                <p>Выделяем главное в условии, вспоминаем необходимые темы и разбираем сложные моменты на простых примерах.</p>
-              </article>
-              <article id="lesson-panel-solve" class="lesson-panel" aria-labelledby="lesson-solve-title">
-                <h3 id="lesson-solve-title">Учимся решать самостоятельно</h3>
-                <p>Обсуждаем последовательность действий, а затем ученик применяет разобранный подход на практике.</p>
-              </article>
-              <article id="lesson-panel-check" class="lesson-panel" aria-labelledby="lesson-check-title">
-                <h3 id="lesson-check-title">Находим и исправляем ошибки</h3>
-                <p>Проверяем ход решения, разбираем ошибки и закрепляем знания на новых заданиях.</p>
-              </article>
-            </div>
-            <ol class="lesson-scheme" aria-hidden="true">
-              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM9 8h6M9 12h6M9 16h3"/></svg></span><span>Условие</span></li>
-              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15z"/></svg></span><span>Решение</span></li>
-              <li class="lesson-node"><span class="lesson-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>Проверка</span></li>
-            </ol>
-            <p class="lesson-stage-label" role="status" aria-atomic="true"></p>
-          </div>
-        </div>
-      </div>
+      <ol class="method-flow" aria-label="Три этапа работы над задачей">
+        <li class="method-step"><div class="method-heading"><span class="method-number" aria-hidden="true">01</span><svg class="method-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v18H4z"/><path class="method-ink" pathLength="1" d="M8 8h8M8 12h8M8 16h4"/></svg></div><h3>Разбор <strong class="text-emphasis">теории и условия</strong></h3><p>Объясняем необходимую теорию, <strong class="text-emphasis">выделяем главное</strong> в условии задачи и определяем, с чего начать.</p></li>
+        <li class="method-step"><div class="method-heading"><span class="method-number" aria-hidden="true">02</span><svg class="method-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15z"/></svg></div><h3><strong class="text-emphasis">Решение</strong></h3><p>Выстраиваем <strong class="text-emphasis">логику решения</strong>, обсуждаем последовательность действий и применяем знания на практике.</p></li>
+        <li class="method-step"><div class="method-heading"><span class="method-number" aria-hidden="true">03</span><svg class="method-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path class="method-ink" pathLength="1" d="m8 12 3 3 5-6"/></svg></div><h3><strong class="text-emphasis">Проверка</strong> и закрепление</h3><p>Проверяем ход решения, <strong class="text-emphasis">исправляем ошибки</strong> и закрепляем материал на новых заданиях.</p></li>
+      </ol>
       <div class="lesson-action"><a href="#contacts" class="button button-primary">Обсудить занятия</a></div>
     </section>
 
-    <section id="reviews" class="reviews-section content-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="reviews-title">
-      <h2 id="reviews-title">Отзывы и результаты учеников</h2>
-      <p class="reviews-subtitle">Что говорят о занятиях ученики и родители</p>
-      <article class="review-feature reveal" aria-labelledby="review-sadzhat">
-        <div class="review-result">
-          <p class="review-result-value"><span>51</span><span class="review-result-arrow">→</span><strong>88</strong></p>
-          <p class="review-result-caption">За 2 месяца · по словам ученика</p>
-        </div>
-        <div class="review-feature-story">
-          <h3 id="review-sadzhat" class="review-author">Саджат<span class="review-role">, ученик</span></h3>
-          <blockquote><p class="review-text">Прекрасный репетитор! Занимались лишь 2 месяца, подняли бал с 51 до 88. Очень доволен результатом, человек знает своё дело, очень доходчиво и четко объяснил каждое задание. Очень приятен в общении. В общем 10/10</p></blockquote>
-        </div>
-      </article>
-      <div class="review-voices">
-        <article class="review-voice reveal" aria-labelledby="review-natalya">
-          <h3 id="review-natalya" class="review-author">Наталья<span class="review-role">, родитель</span></h3>
-          <blockquote><p class="review-text">С учетом того, что ребенок не был замотивирован на учебу, Илья Сергеевич сумел заинтересовать ученика и подготовить его к успешной сдаче ОГЭ по информатике. Специалиста рекомендую однозначно!</p></blockquote>
+    <section id="reviews" class="reviews-section content-section max-w-7xl mx-auto" aria-labelledby="reviews-title">
+      <span class="section-kicker">Опыт учеников / 05</span><h2 id="reviews-title">Отзывы и результаты учеников</h2><p class="reviews-subtitle">Что говорят о занятиях ученики и родители</p>
+      <div class="reviews-track" tabindex="0" role="region" aria-label="Пять отзывов. Прокручивайте горизонтально или используйте стрелки">
+      <article class="review-slide review-slide--featured" aria-labelledby="review-sadzhat"><div class="review-heading"><p class="review-category">Результат ученика</p><span class="quote-mark" aria-hidden="true">“</span></div><div class="review-result"><p class="review-result-value"><span>51</span><span class="review-result-arrow">→</span><strong>88</strong></p><p class="review-result-caption">За 2 месяца · по словам ученика</p></div><blockquote><p class="review-text">Прекрасный репетитор! Занимались лишь 2 месяца, подняли бал с 51 до 88. Очень доволен результатом, человек знает своё дело, очень доходчиво и четко объяснил каждое задание. Очень приятен в общении. В общем 10/10</p></blockquote><h3 id="review-sadzhat" class="review-author">Саджат<span class="review-role">, ученик</span></h3></article>
+<article class="review-slide review-slide--green review-slide--exam" aria-labelledby="review-natalya"><div class="review-heading"><p class="review-category">Подготовка к ОГЭ</p><span class="quote-mark" aria-hidden="true">“</span></div><p class="review-outcome">Интерес к учёбе. ОГЭ сдан.</p><blockquote><p class="review-text">С учетом того, что ребенок не был замотивирован на учебу, Илья Сергеевич сумел заинтересовать ученика и подготовить его к успешной сдаче ОГЭ по информатике. Специалиста рекомендую однозначно!</p></blockquote><h3 id="review-natalya" class="review-author">Наталья<span class="review-role">, родитель</span></h3></article>
+<article class="review-slide review-slide--short review-slide--insight" aria-labelledby="review-eduard"><div class="review-heading"><p class="review-category">Понимание предмета</p><span class="quote-mark" aria-hidden="true">“</span></div><p class="review-outcome">Логика вместо шаблонов</p><blockquote><p class="review-text">Спасибо большое Илье Сергеевичу, научил понимать логику решения, а не тупо решать по шаблонам.</p></blockquote><h3 id="review-eduard" class="review-author">Эдуард<span class="review-role">, ученик</span></h3></article>
+<article class="review-slide review-slide--green review-slide--short" aria-labelledby="review-maria"><div class="review-heading"><p class="review-category">Индивидуальный подход</p><span class="quote-mark" aria-hidden="true">“</span></div><p class="review-outcome">Сразу нашли общий язык</p><blockquote><p class="review-text">Илья Сергеевич очень понравился. Доступно объясняет материал, сразу нашел контакт с ребенком.</p></blockquote><h3 id="review-maria" class="review-author">Мария<span class="review-role">, родитель</span></h3></article>
+<article class="review-slide review-slide--short review-slide--progress" aria-labelledby="review-alina"><div class="review-heading"><p class="review-category">Прогресс в учёбе</p><span class="quote-mark" aria-hidden="true">“</span></div><p class="review-outcome">Пробелы закрыты</p><blockquote><p class="review-text">Все супер, подтянул знания, заполнил пробелы. Спасибо большое ему.</p></blockquote><h3 id="review-alina" class="review-author">Алина<span class="review-role">, ученица</span></h3></article>
+      </div>
+      <div class="reviews-controls" hidden><div class="review-arrows"><button type="button" data-review-prev aria-label="Предыдущий отзыв">←</button><button type="button" data-review-next aria-label="Следующий отзыв">→</button></div><div class="review-dots" role="group" aria-label="Выбрать отзыв"><button type="button" data-review-index="0" aria-label="Отзыв: Саджат"></button><button type="button" data-review-index="1" aria-label="Отзыв: Наталья"></button><button type="button" data-review-index="2" aria-label="Отзыв: Эдуард"></button><button type="button" data-review-index="3" aria-label="Отзыв: Мария"></button><button type="button" data-review-index="4" aria-label="Отзыв: Алина"></button></div><span class="reviews-announcement sr-only" role="status" aria-live="polite"></span></div>
+      <p class="reviews-source">На основе отзывов PROFI.RU</p>
+    </section>
+
+    <section id="contacts" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="contacts-title">
+      <span class="section-kicker">Давайте познакомимся / 06</span>
+      <h2 id="contacts-title">Контакты</h2>
+      <p class="contact-intro">Обсудим ваши цели, формат и время занятий. Выберите удобный способ связи.</p>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="contact-heading"><span class="contact-icon" aria-hidden="true"><img src="./icons/Tg.svg" width="38" height="38" alt=""></span><h3>Telegram</h3></div>
+          <p class="contact-description">Напишите, к какому экзамену готовитесь или какие темы хотите разобрать.</p>
+          <p class="contact-address">@ilyaign17</p>
+          <a href="https://t.me/ilyaign17" target="_blank" rel="noopener" class="contact-action button button-secondary">Написать в Telegram</a>
         </article>
-        <article class="review-voice reveal" aria-labelledby="review-eduard">
-          <h3 id="review-eduard" class="review-author">Эдуард<span class="review-role">, ученик</span></h3>
-          <blockquote><p class="review-text">Спасибо большое Илье Сергеевичу, научил понимать логику решения, а не тупо решать по шаблонам.</p></blockquote>
+        <article class="contact-card">
+          <div class="contact-heading"><span class="contact-icon" aria-hidden="true"><img src="./icons/Max.svg" width="38" height="38" alt=""></span><h3>MAX</h3></div>
+          <p class="contact-description">Напишите в MAX, чтобы обсудить подготовку, формат и время занятий.</p>
+          <p class="contact-address">Личный профиль в MAX</p>
+          <a href="https://max.ru/u/f9LHodD0cOJ-hFR5n90up0fdImmcLEkO3JKmJxXthpwt0a1u_3K9FxgiF2k" target="_blank" rel="noopener noreferrer" class="contact-action button button-secondary">Написать в MAX</a>
         </article>
-        <article class="review-voice reveal" aria-labelledby="review-maria">
-          <h3 id="review-maria" class="review-author">Мария<span class="review-role">, родитель</span></h3>
-          <blockquote><p class="review-text">Илья Сергеевич очень понравился. Доступно объясняет материал, сразу нашел контакт с ребенком.</p></blockquote>
-        </article>
-        <article class="review-voice reveal" aria-labelledby="review-alina">
-          <h3 id="review-alina" class="review-author">Алина<span class="review-role">, ученица</span></h3>
-          <blockquote><p class="review-text">Все супер, подтянул знания, заполнил пробелы. Спасибо большое ему.</p></blockquote>
+        <article class="contact-card">
+          <div class="contact-heading"><span class="contact-icon contact-icon--mail" aria-hidden="true"><img src="./icons/mail.svg" width="66" height="66" alt="" class="contact-icon-mail"></span><h3>Электронная почта</h3></div>
+          <p class="contact-description">Расскажите о цели занятий и укажите удобное для вас время.</p>
+          <p class="contact-address">ilya100school@yandex.ru</p>
+          <a href="mailto:ilya100school@yandex.ru" class="contact-action button button-secondary">Написать на почту</a>
         </article>
       </div>
     </section>
 
     <section id="faq" class="faq-section content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="faq-title">
+      <span class="section-kicker">Перед началом / 07</span>
       <h2 id="faq-title">Частые вопросы</h2>
       <p class="faq-subtitle">Всё, что важно знать перед началом занятий</p>
       <div class="faq-list">
@@ -741,34 +660,11 @@
           </div>
         </details>
       </div>
-      <div class="faq-action"><a href="#contacts" class="button button-primary">Выбрать способ связи</a></div>
+      <div class="faq-action"><p>Остались вопросы? Напишите мне</p><a href="#contacts" class="button button-primary">Выбрать способ связи</a></div>
     </section>
 
     <!-- CONTACTS -->
-    <section id="contacts" class="content-section reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-labelledby="contacts-title">
-      <h2 id="contacts-title">Контакты</h2>
-      <p class="contact-intro">Обсудим ваши цели, формат и время занятий. Выберите удобный способ связи.</p>
-      <div class="contact-grid">
-        <article class="contact-card">
-          <div class="contact-heading"><span class="contact-icon" aria-hidden="true"><img src="./icons/Tg.svg" width="38" height="38" alt=""></span><h3>Telegram</h3></div>
-          <p class="contact-description">Напишите, к какому экзамену готовитесь или какие темы хотите разобрать.</p>
-          <p class="contact-address">@ilyaign17</p>
-          <a href="https://t.me/ilyaign17" target="_blank" rel="noopener" class="contact-action button button-secondary">Написать в Telegram</a>
-        </article>
-        <article class="contact-card">
-          <div class="contact-heading"><span class="contact-icon" aria-hidden="true"><img src="./icons/Max.svg" width="38" height="38" alt=""></span><h3>MAX</h3></div>
-          <p class="contact-description">Напишите в MAX, чтобы обсудить подготовку, формат и время занятий.</p>
-          <p class="contact-address">Личный профиль в MAX</p>
-          <a href="https://max.ru/u/f9LHodD0cOJ-hFR5n90up0fdImmcLEkO3JKmJxXthpwt0a1u_3K9FxgiF2k" target="_blank" rel="noopener noreferrer" class="contact-action button button-secondary">Написать в MAX</a>
-        </article>
-        <article class="contact-card">
-          <div class="contact-heading"><span class="contact-icon contact-icon--mail" aria-hidden="true"><img src="./icons/mail.svg" width="66" height="66" alt="" class="contact-icon-mail"></span><h3>Электронная почта</h3></div>
-          <p class="contact-description">Расскажите о цели занятий и укажите удобное для вас время.</p>
-          <p class="contact-address">ilya100school@yandex.ru</p>
-          <a href="mailto:ilya100school@yandex.ru" class="contact-action button button-secondary">Написать на почту</a>
-        </article>
-      </div>
-    </section>
+
 
 
   </main>
@@ -776,6 +672,7 @@
     <p>© <span id="y"></span> Илья Игнатенков. Онлайн‑занятия. Математика · Информатика · Python.</p>
     <div class="privacy-links"><a href="./privacy.html">Обработка персональных данных</a><button type="button" data-analytics-settings hidden>Настройки статистики</button></div>
   </footer>
+  <aside class="booking-dock" aria-label="Быстрая запись" hidden><a href="#contacts" class="button button-primary">Записаться на занятие <span aria-hidden="true">↗</span></a></aside>
   <section class="analytics-notice" id="analytics-notice" aria-labelledby="analytics-title" hidden>
     <div class="analytics-copy">
       <h2 id="analytics-title">Статистика сайта</h2>
@@ -785,140 +682,8 @@
     </div>
     <div class="analytics-actions"><button type="button" class="button button-secondary" data-analytics-choice="accepted">Разрешить</button><button type="button" class="button button-secondary" data-analytics-choice="denied">Отклонить</button><button type="button" class="analytics-dismiss" id="analytics-dismiss" hidden>Закрыть настройки</button></div>
   </section>
-
-  <script id="lesson-stage-script">
-    (() => {
-      const block = document.querySelector('.lesson-block');
-      const controls = block.querySelector('.lesson-controls');
-      const tabs = [...controls.querySelectorAll('button')];
-      const panels = [...block.querySelectorAll('.lesson-panel')];
-      const nodes = [...block.querySelectorAll('.lesson-node')];
-      const stageLabel = block.querySelector('.lesson-stage-label');
-      const vertical = window.matchMedia('(min-width:1024px)');
-      const reduced = window.matchMedia('(prefers-reduced-motion:reduce)');
-      let active = -1;
-      let animation;
-
-      function selectStage(index, focus = false, animate = true) {
-        const changed = index !== active;
-        if (animation) animation.cancel();
-        tabs.forEach((tab, i) => {
-          tab.setAttribute('aria-selected', String(i === index));
-          tab.tabIndex = i === index ? 0 : -1;
-          panels[i].setAttribute('aria-hidden', String(i !== index));
-          panels[i].inert = i !== index;
-          panels[i].tabIndex = i === index ? 0 : -1;
-          nodes[i].classList.toggle('is-active', i === index);
-        });
-        active = index;
-        stageLabel.textContent = `Этап ${index + 1} из ${tabs.length}`;
-        if (focus) tabs[index].focus();
-        if (changed && animate && !reduced.matches && panels[index].animate) {
-          animation = panels[index].animate([
-            { opacity:.75, transform:'translateY(6px)' },
-            { opacity:1, transform:'translateY(0)' }
-          ], { duration:180, easing:'ease-out' });
-        }
-      }
-
-      function updateOrientation() {
-        controls.setAttribute('aria-orientation', vertical.matches ? 'vertical' : 'horizontal');
-      }
-
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => selectStage(index));
-        tab.addEventListener('keydown', (event) => {
-          let next;
-          if (event.key === 'Home') next = 0;
-          else if (event.key === 'End') next = tabs.length - 1;
-          else if (event.key === (vertical.matches ? 'ArrowDown' : 'ArrowRight')) next = (index + 1) % tabs.length;
-          else if (event.key === (vertical.matches ? 'ArrowUp' : 'ArrowLeft')) next = (index + tabs.length - 1) % tabs.length;
-          if (next === undefined) return;
-          event.preventDefault();
-          selectStage(next, true);
-        });
-      });
-      vertical.addEventListener('change', updateOrientation);
-      reduced.addEventListener('change', () => { if (reduced.matches && animation) animation.cancel(); });
-      // All content stays visible until enhancement is fully initialized.
-      controls.setAttribute('role', 'tablist');
-      tabs.forEach((tab, i) => {
-        tab.setAttribute('role', 'tab');
-        panels[i].setAttribute('role', 'tabpanel');
-        panels[i].setAttribute('aria-labelledby', tab.id);
-      });
-      updateOrientation();
-      selectStage(0, false, false);
-      block.classList.add('is-enhanced');
-      controls.hidden = false;
-    })();
-  </script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <script>
-    (() => {
-      const header = document.querySelector('.site-header');
-      const button = header.querySelector('.menu-toggle');
-      const navigation = document.getElementById('site-navigation');
-      const desktop = window.matchMedia('(min-width:1280px)');
-      let expanded = false;
-
-      function setExpanded(open, restoreFocus = false) {
-        expanded = open && !desktop.matches;
-        button.setAttribute('aria-expanded', String(expanded));
-        button.setAttribute('aria-label', expanded ? 'Закрыть меню' : 'Открыть меню');
-        navigation.classList.toggle('is-open', expanded);
-        const collapsed = !desktop.matches && !expanded;
-        navigation.inert = collapsed;
-        navigation.setAttribute('aria-hidden', String(collapsed));
-        if (restoreFocus) button.focus();
-      }
-
-      function updateHeaderHeight() {
-        const height = Math.ceil(header.getBoundingClientRect().height);
-        document.documentElement.style.setProperty('--header-height', `${height + 12}px`);
-      }
-
-      button.addEventListener('click', () => setExpanded(!expanded));
-      navigation.addEventListener('click', (event) => {
-        const link = event.target.closest('a[href^="#"]');
-        if (!link || !expanded) return;
-        setExpanded(false);
-        const target = document.getElementById(link.hash.slice(1));
-        if (target) {
-          target.setAttribute('tabindex', '-1');
-          target.focus({ preventScroll:true });
-        }
-      });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && expanded) {
-          event.preventDefault();
-          setExpanded(false, true);
-        }
-      });
-      document.addEventListener('click', (event) => {
-        if (expanded && !navigation.contains(event.target) && !button.contains(event.target)) {
-          setExpanded(false, navigation.contains(document.activeElement));
-        }
-      });
-      document.addEventListener('focusin', (event) => {
-        if (expanded && !navigation.contains(event.target) && event.target !== button) setExpanded(false);
-      });
-      desktop.addEventListener('change', () => {
-        const active = document.activeElement;
-        setExpanded(false);
-        if (!desktop.matches && navigation.contains(active)) button.focus();
-        if (desktop.matches && active === button) navigation.querySelector('a').focus();
-        updateHeaderHeight();
-      });
-      window.addEventListener('resize', updateHeaderHeight);
-      if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
-      // CSS already establishes the header geometry; readiness only marks installed handlers.
-      setExpanded(false);
-      header.classList.add('nav-ready');
-      updateHeaderHeight();
-    })();
   </script>
   <script>
     (() => {
